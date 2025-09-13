@@ -572,7 +572,7 @@ animations = [{
 radius = 4.0
 height = 10.0
 
-[node name="player" type="CharacterBody2D"]
+[node name="Morgan" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

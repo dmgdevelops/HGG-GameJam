@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rfed6tdme1pt"
-path="res://.godot/imported/SpriteSheet.png-fb15159d16bc8528b1ed09fa53650ff1.ctex"
+uid="uid://8d4yipr05fsr"
+path="res://.godot/imported/MorganSprite.png-513c218786cc0d15456a916dbfcb8c1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpriteSheet.png"
-dest_files=["res://.godot/imported/SpriteSheet.png-fb15159d16bc8528b1ed09fa53650ff1.ctex"]
+source_file="res://Assets/MorganSprite.png"
+dest_files=["res://.godot/imported/MorganSprite.png-513c218786cc0d15456a916dbfcb8c1e.ctex"]
 
 [params]
 

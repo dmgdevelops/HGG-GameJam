@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bb6hjur70g55q" path="res://Assets/TilesetFloor.png" id="1_d5w7f"]
 [ext_resource type="Texture2D" uid="uid://qe7ruw8gh6t6" path="res://Assets/TilesetDesert.png" id="2_8b6vb"]
-[ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/player.tscn" id="2_jbfcj"]
+[ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Morgan.tscn" id="2_jbfcj"]
 [ext_resource type="Texture2D" uid="uid://byoh73wx8pka4" path="res://Assets/TilesetRelief.png" id="3_r1umk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jbfcj"]

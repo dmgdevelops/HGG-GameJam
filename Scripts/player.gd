@@ -20,11 +20,11 @@ func _physics_process(_delta):
 		last_direction = direction
 	
 	if direction.x != 0:
-		animated_sprite.play("walk_right")
+		animated_sprite.play("run_right")
 	elif direction.y < 0:
-		animated_sprite.play("walk_up")
+		animated_sprite.play("run_up")
 	elif direction.y > 0:
-		animated_sprite.play("walk_down")
+		animated_sprite.play("run_down")
 	else:
 		if last_direction.x != 0:
 			animated_sprite.play("idle_right")

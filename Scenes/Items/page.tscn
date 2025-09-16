@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://tiagy1m5trll"]
+
+[ext_resource type="Texture2D" uid="uid://dibko0n5iv17a" path="res://Assets/paper_sprite.png" id="1_a7elv"]
+[ext_resource type="Script" uid="uid://bo47y0iow5805" path="res://Scripts/page.gd" id="1_e40xn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e40xn"]
+radius = 5.0
+
+[node name="page" type="Area2D"]
+script = ExtResource("1_e40xn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e40xn")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("1_a7elv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

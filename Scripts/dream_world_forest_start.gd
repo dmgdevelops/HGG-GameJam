@@ -11,4 +11,4 @@ func _on_cave_entrance_body_entered(body):
 
 func change_scenes(scene_name):
 	if scene_name == "DreamWorldRoomOfChoice":
-		get_tree().change_scene_to_file("res://Scenes/dream_world_room_of_choice.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Stages/dream_world_room_of_choice.tscn")

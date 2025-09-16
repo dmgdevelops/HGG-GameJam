@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+@onready var Hurtbox = $Hurtbox
+
+@onready var Walkbox = $Walkbox
+
 var speed = 100
 
 var last_direction = Vector2.ZERO

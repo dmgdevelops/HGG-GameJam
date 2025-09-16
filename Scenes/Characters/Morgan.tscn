@@ -1,6 +1,6 @@
-[gd_scene load_steps=76 format=3 uid="uid://cp3othgqimikm"]
+[gd_scene load_steps=77 format=3 uid="uid://cp3othgqimikm"]
 
-[ext_resource type="Script" uid="uid://b5c0umy868tnb" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Script" uid="uid://b5c0umy868tnb" path="res://Scripts/morgan.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://8d4yipr05fsr" path="res://Assets/MorganSprite.png" id="2_cvnsp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
@@ -572,6 +572,10 @@ animations = [{
 radius = 5.0
 height = 18.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efa38"]
+radius = 3.0
+height = 10.0
+
 [node name="Morgan" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_cvnsp")
 
@@ -581,6 +585,12 @@ sprite_frames = SubResource("SpriteFrames_vgqql")
 animation = &"idle_down"
 autoplay = "idle_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_cvnsp")
+disabled = true
+
+[node name="Walkbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_efa38")

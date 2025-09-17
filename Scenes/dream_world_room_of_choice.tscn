@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://dvdbjnfb1ow8"]
+[gd_scene load_steps=13 format=4 uid="uid://dvdbjnfb1ow8"]
 
 [ext_resource type="Script" uid="uid://dedro2ws6jvcd" path="res://Scripts/dream_world_room_of_choice.gd" id="1_6psqh"]
 [ext_resource type="Texture2D" uid="uid://oyflybc3mfbj" path="res://Assets/Dungeon_Tileset.png" id="1_7o44i"]
 [ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Morgan.tscn" id="2_6psqh"]
+[ext_resource type="PackedScene" uid="uid://b4rd8edsimwq3" path="res://Scenes/dialogue_starters.tscn" id="4_um8re"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fouob"]
 texture = ExtResource("1_7o44i")
@@ -480,6 +481,8 @@ sources/0 = SubResource("TileSetAtlasSource_k4f4f")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_um8re"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hithq"]
+
 [node name="DreamWorldRoomOfChoice" type="Node2D"]
 script = ExtResource("1_6psqh")
 
@@ -511,4 +514,12 @@ tile_set = SubResource("TileSet_wq3hk")
 position = Vector2(184, 132)
 shape = SubResource("RectangleShape2D_um8re")
 
+[node name="dialogue_starters" parent="." instance=ExtResource("4_um8re")]
+position = Vector2(117, 82)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dialogue_starters"]
+position = Vector2(67, -4)
+shape = SubResource("RectangleShape2D_hithq")
+
 [connection signal="body_entered" from="CaveToForest" to="." method="_on_cave_to_forest_body_entered"]
+[connection signal="body_entered" from="dialogue_starters" to="." method="_on_dialogue_starters_body_entered"]

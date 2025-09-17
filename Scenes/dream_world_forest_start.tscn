@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://dc86nmxxx1ran"]
+[gd_scene load_steps=17 format=4 uid="uid://dc86nmxxx1ran"]
 
 [ext_resource type="Texture2D" uid="uid://c2ven4m7tjq7r" path="res://Assets/Overworld_Tileset.png" id="1_0mlm1"]
 [ext_resource type="Script" uid="uid://wqvefkq5l575" path="res://Scripts/dream_world_forest_start.gd" id="1_do4px"]
 [ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Morgan.tscn" id="2_do4px"]
+[ext_resource type="PackedScene" uid="uid://b4rd8edsimwq3" path="res://Scenes/dialogue_starters.tscn" id="4_7cf5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7cf5x"]
 texture = ExtResource("1_0mlm1")
@@ -1137,6 +1138,8 @@ sources/0 = SubResource("TileSetAtlasSource_0mlm1")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cf5x"]
 size = Vector2(20, 18)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdq2o"]
+
 [node name="DreamWorldForestStart" type="Node2D"]
 script = ExtResource("1_do4px")
 
@@ -1200,4 +1203,11 @@ polygon = PackedVector2Array(751, 78, 751, 62, 753, 58, 768, 58, 770, 62, 770, 7
 position = Vector2(760, 67)
 shape = SubResource("RectangleShape2D_7cf5x")
 
+[node name="DialogueStarters" parent="." instance=ExtResource("4_7cf5x")]
+position = Vector2(272, 317)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DialogueStarters"]
+shape = SubResource("RectangleShape2D_qdq2o")
+
 [connection signal="body_entered" from="CaveEntrance" to="." method="_on_cave_entrance_body_entered"]
+[connection signal="body_entered" from="DialogueStarters" to="." method="_on_dialogue_starters_body_entered"]

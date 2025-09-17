@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=4 uid="uid://dc86nmxxx1ran"]
 
 [ext_resource type="Texture2D" uid="uid://c2ven4m7tjq7r" path="res://Assets/Overworld_Tileset.png" id="1_0mlm1"]
-[ext_resource type="Script" uid="uid://wqvefkq5l575" path="res://Scenes/dream_world_forest_start.gd" id="1_do4px"]
+[ext_resource type="Script" uid="uid://wqvefkq5l575" path="res://Scripts/dream_world_forest_start.gd" id="1_do4px"]
 [ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Morgan.tscn" id="2_do4px"]
 [ext_resource type="PackedScene" uid="uid://b4rd8edsimwq3" path="res://Scenes/dialogue_starters.tscn" id="4_7cf5x"]
 

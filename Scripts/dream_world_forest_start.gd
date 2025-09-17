@@ -21,6 +21,7 @@ func change_scenes(scene_name):
 
 func _on_dialogue_starters_body_entered(body: Node2D) -> void:
 	print("Starting timeline")
+	morgan.animated_sprite.play("idle_right")
 	morgan.set_physics_process(false)
 	if Dialogic.current_timeline != null:
 		return

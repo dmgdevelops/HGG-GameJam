@@ -15,7 +15,7 @@ func _on_cave_to_forest_body_entered(body):
 
 func change_scenes(scene_name):
 	if scene_name == "DreamWorldForestStart":
-		get_tree().change_scene_to_file("res://Scenes/dream_world_forest_start.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Stages/dream_world_forest_start.tscn")
 
 
 func _on_dialogue_starters_body_entered(body: Node2D) -> void:

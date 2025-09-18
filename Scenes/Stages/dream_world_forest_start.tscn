@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://c2ven4m7tjq7r" path="res://Assets/Overworld_Tileset.png" id="1_0mlm1"]
 [ext_resource type="Script" uid="uid://wqvefkq5l575" path="res://Scripts/dream_world_forest_start.gd" id="1_7cf5x"]
-[ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Morgan.tscn" id="2_do4px"]
+[ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Characters/Morgan.tscn" id="2_do4px"]
 [ext_resource type="PackedScene" uid="uid://b4rd8edsimwq3" path="res://Scenes/dialogue_starters.tscn" id="4_7cf5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7cf5x"]
-texture = ExtResource("2_fucex")
+texture = ExtResource("1_0mlm1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -232,7 +232,7 @@ texture = ExtResource("2_fucex")
 sources/0 = SubResource("TileSetAtlasSource_7cf5x")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6m7n"]
-texture = ExtResource("2_fucex")
+texture = ExtResource("1_0mlm1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -458,7 +458,7 @@ texture = ExtResource("2_fucex")
 sources/0 = SubResource("TileSetAtlasSource_o6m7n")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bdb8f"]
-texture = ExtResource("2_fucex")
+texture = ExtResource("1_0mlm1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -684,7 +684,7 @@ texture = ExtResource("2_fucex")
 sources/0 = SubResource("TileSetAtlasSource_bdb8f")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_do4px"]
-texture = ExtResource("2_fucex")
+texture = ExtResource("1_0mlm1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -910,7 +910,7 @@ texture = ExtResource("2_fucex")
 sources/0 = SubResource("TileSetAtlasSource_do4px")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0mlm1"]
-texture = ExtResource("2_fucex")
+texture = ExtResource("1_0mlm1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1171,7 +1171,7 @@ polygon = PackedVector2Array(704, 0, 704, 192, 64, 192, 64, 392, 816, 392, 816, 
 tile_map_data = PackedByteArray("AAAvAAQAAAAIAAoAAAAOABEAAAALAAgAAAAPABEAAAAMAAgAAAAQABEAAAANAAgAAAAMABEAAAAJAAgAAAANABEAAAAKAAgAAAAsAAQAAAAGAAgAAAAtAAQAAAAHAAgAAAAxAAQAAAAHAAgAAAAyAAQAAAAIAAgAAAAuAAQAAAAHAAoAAAAwAAQAAAAJAAoAAAA=")
 tile_set = SubResource("TileSet_7cf5x")
 
-[node name="Morgan" parent="." instance=ExtResource("3_0cp26")]
+[node name="Morgan" parent="." instance=ExtResource("2_do4px")]
 position = Vector2(244, 291)
 
 [node name="Camera2D" type="Camera2D" parent="Morgan"]

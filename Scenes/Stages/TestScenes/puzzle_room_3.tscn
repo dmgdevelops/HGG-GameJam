@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=4 uid="uid://b8ceh7s5ksmm7"]
 
-[ext_resource type="Texture2D" uid="uid://caqw32masggxr" path="res://Assets/forestgrass1.png" id="1_so3fp"]
-[ext_resource type="Texture2D" uid="uid://cnts08k876525" path="res://Assets/exterior.png" id="2_ve4kq"]
-[ext_resource type="PackedScene" uid="uid://c58yphwslang2" path="res://Scenes/Items/sliding_box.tscn" id="3_k70ti"]
-[ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Characters/Morgan.tscn" id="4_qabym"]
+[ext_resource type="Texture2D" uid="uid://caqw32masggxr" path="res://Assets/forestgrass1.png" id="1_vttql"]
+[ext_resource type="Texture2D" uid="uid://cnts08k876525" path="res://Assets/exterior.png" id="2_whhcu"]
+[ext_resource type="PackedScene" uid="uid://c58yphwslang2" path="res://Scenes/Items/sliding_box.tscn" id="3_mouhu"]
+[ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Characters/Morgan.tscn" id="4_e0ksn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ny3x0"]
-texture = ExtResource("1_so3fp")
+texture = ExtResource("1_vttql")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -4234,7 +4234,7 @@ texture = ExtResource("1_so3fp")
 64:64/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3bxe3"]
-texture = ExtResource("2_ve4kq")
+texture = ExtResource("2_whhcu")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -4919,43 +4919,43 @@ tile_set = SubResource("TileSet_qxdho")
 
 [node name="BoxesPuzzle1" type="Node2D" parent="."]
 
-[node name="SlidingBox" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(252, 363)
 
-[node name="SlidingBox2" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox2" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(268, 363)
 
-[node name="SlidingBox3" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox3" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(284, 363)
 
-[node name="SlidingBox4" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox4" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(236, 346)
 
-[node name="SlidingBox5" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox5" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(300, 346)
 
-[node name="SlidingBox6" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox6" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(252, 328)
 
-[node name="SlidingBox7" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox7" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(268, 328)
 
-[node name="SlidingBox8" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox8" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(284, 328)
 
-[node name="SlidingBox9" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox9" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(252, 310)
 
-[node name="SlidingBox10" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox10" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(284, 310)
 
-[node name="SlidingBox11" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox11" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(300, 310)
 
-[node name="SlidingBox12" parent="BoxesPuzzle1" instance=ExtResource("3_k70ti")]
+[node name="SlidingBox12" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(236, 310)
 
-[node name="Morgan" parent="." instance=ExtResource("4_qabym")]
+[node name="Morgan" parent="." instance=ExtResource("4_e0ksn")]
 position = Vector2(269, 381)
 
 [node name="Camera2D" type="Camera2D" parent="Morgan"]

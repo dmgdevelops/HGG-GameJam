@@ -1,13 +1,13 @@
 [gd_scene load_steps=16 format=4 uid="uid://cto6fctj83fse"]
 
-[ext_resource type="Texture2D" uid="uid://caqw32masggxr" path="res://Assets/forestgrass1.png" id="1_oanlo"]
-[ext_resource type="Texture2D" uid="uid://cnts08k876525" path="res://Assets/exterior.png" id="2_n60i2"]
-[ext_resource type="Script" uid="uid://t8jcjys0sbfu" path="res://Scripts/ice_puzzle_1.gd" id="2_q1aot"]
-[ext_resource type="Texture2D" uid="uid://bb6hjur70g55q" path="res://Assets/TilesetFloor.png" id="3_q1aot"]
-[ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Characters/Morgan.tscn" id="4_n60i2"]
+[ext_resource type="Texture2D" uid="uid://caqw32masggxr" path="res://Assets/forestgrass1.png" id="1_tafdr"]
+[ext_resource type="Script" uid="uid://t8jcjys0sbfu" path="res://Scripts/PuzzleScripts/IceSlidePuzzle1.gd" id="2_f7pn0"]
+[ext_resource type="Texture2D" uid="uid://cnts08k876525" path="res://Assets/exterior.png" id="3_t15p3"]
+[ext_resource type="Texture2D" uid="uid://bb6hjur70g55q" path="res://Assets/TilesetFloor.png" id="4_u77p5"]
+[ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Characters/Morgan.tscn" id="5_qb5qc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fndrp"]
-texture = ExtResource("1_oanlo")
+texture = ExtResource("1_tafdr")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -4238,7 +4238,7 @@ texture = ExtResource("1_oanlo")
 sources/0 = SubResource("TileSetAtlasSource_fndrp")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v18tq"]
-texture = ExtResource("2_n60i2")
+texture = ExtResource("3_t15p3")
 0:20/size_in_atlas = Vector2i(4, 5)
 0:20/0 = 0
 8:21/size_in_atlas = Vector2i(4, 4)
@@ -4279,7 +4279,7 @@ texture = ExtResource("2_n60i2")
 sources/1 = SubResource("TileSetAtlasSource_v18tq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y1lco"]
-texture = ExtResource("3_q1aot")
+texture = ExtResource("4_u77p5")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -4740,7 +4740,7 @@ texture = ExtResource("3_q1aot")
 19:25/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0mte5"]
-texture = ExtResource("2_n60i2")
+texture = ExtResource("3_t15p3")
 13:25/0 = 0
 14:26/0 = 0
 14:25/0 = 0
@@ -4763,7 +4763,7 @@ sources/0 = SubResource("TileSetAtlasSource_y1lco")
 sources/2 = SubResource("TileSetAtlasSource_0mte5")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uehfd"]
-texture = ExtResource("2_n60i2")
+texture = ExtResource("3_t15p3")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -5437,7 +5437,7 @@ texture = ExtResource("2_n60i2")
 14:49/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5dvy"]
-texture = ExtResource("3_q1aot")
+texture = ExtResource("4_u77p5")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -5908,7 +5908,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAGABwAAAAAAAEAAAAGABwAAAAAAAIAAAAGABw
 tile_set = SubResource("TileSet_a74jv")
 
 [node name="IcePuzzle1" type="Node2D" parent="."]
-script = ExtResource("2_q1aot")
+script = ExtResource("2_f7pn0")
 
 [node name="Borders" type="TileMapLayer" parent="IcePuzzle1"]
 tile_map_data = PackedByteArray("AAAjADcAAQAKAAcAAAAjADgAAQAKAAcAAAAjADkAAQAKAAcAAAAjADoAAQAKAAcAAAAjADsAAQAKAAcAAAAjADwAAQAKAAcAAAAjAD0AAQAKAAcAAAAjAD4AAQAKAAcAAAAiAD4AAQAKAAcAAAAhAD4AAQAKAAcAAAAgAD4AAQAKAAcAAAAeAD4AAQAKAAcAAAAdAD4AAQAKAAcAAAAcAD4AAQAKAAcAAAAbAD4AAQAKAAcAAAAaAD4AAQAKAAcAAAAZAD4AAQAKAAcAAAAXAD4AAQAKAAcAAAAPAD4AAQAKAAcAAAAOAD4AAQAKAAcAAAANAD4AAQAKAAcAAAAMAD4AAQAKAAcAAAALAD4AAQAKAAcAAAALAD0AAQAKAAcAAAALADwAAQAKAAcAAAALADsAAQAKAAcAAAALADkAAQAKAAcAAAALADgAAQAKAAcAAAALADcAAQAKAAcAAAALADYAAQAKAAcAAAALADUAAQAKAAcAAAALADQAAQAKAAcAAAALADMAAQAKAAcAAAALADIAAQAKAAcAAAALADEAAQAKAAcAAAALADAAAQAKAAcAAAAMADAAAQAKAAcAAAANADAAAQAKAAcAAAAOADAAAQAKAAcAAAAPADAAAQAKAAcAAAAQADAAAQAKAAcAAAARADAAAQAKAAcAAAASADAAAQAKAAcAAAATADAAAQAKAAcAAAAUADAAAQAKAAcAAAAVADAAAQAKAAcAAAAWADAAAQAKAAcAAAAXADAAAQAKAAcAAAAYADAAAQAKAAcAAAAZADAAAQAKAAcAAAAaADAAAQAKAAcAAAAPAD8AAQAKAAcAAAAQAD8AAQAKAAcAAAARAD8AAQAKAAcAAAASAD8AAQAKAAcAAAATAD8AAQAKAAcAAAAUAD8AAQAKAAcAAAAVAD8AAQAKAAcAAAAWAD8AAQAKAAcAAAAfAD4AAQAKAAcAAAAjADEAAQAKAAcAAAAjADIAAQAKAAcAAAAjADMAAQAKAAcAAAAjADQAAQAKAAcAAAAjADUAAQAKAAcAAAAlADAAAQAKAAcAAAAlADEAAQAKAAcAAAAlADIAAQAKAAcAAAAlADMAAQAKAAcAAAAlADQAAQAKAAcAAAAlADUAAQAKAAcAAAAlADYAAQAKAAcAAAAlADcAAQAKAAcAAAAkADcAAQAKAAcAAAAjADAAAQAKAAcAAAAiADAAAQAKAAcAAAAhADAAAQAKAAcAAAAgADAAAQAKAAcAAAAfADAAAQAKAAcAAAAeADAAAQAKAAcAAAAdADAAAQAKAAcAAAAcADAAAQAKAAcAAAAaAC8AAQAKAAcAAAAaAC4AAQAKAAcAAAAbAC4AAQAKAAcAAAAcAC4AAQAKAAcAAAAdAC4AAQAKAAcAAAAeAC4AAQAKAAcAAAAfAC4AAQAKAAcAAAAgAC4AAQAKAAcAAAAhAC4AAQAKAAcAAAAiAC4AAQAKAAcAAAAjAC4AAQAKAAcAAAAkAC4AAQAKAAcAAAAlAC4AAQAKAAcAAAAlAC8AAQAKAAcAAAA=")
@@ -5918,15 +5918,15 @@ tile_set = SubResource("TileSet_if4io")
 
 [node name="Rocks1" type="CollisionPolygon2D" parent="IcePuzzle1/Borders/StaticBody2D"]
 build_mode = 1
-polygon = PackedVector2Array(576, 896, 608, 896, 608, 736, 416, 736, 416, 768, 176, 768, 176, 928, 192, 928, 192, 784, 432, 784, 432, 752, 592, 752, 592, 880, 560, 880, 560, 992, 400, 992, 400, 1008, 576, 1008)
+polygon = PackedVector2Array(576, 896, 608, 896, 608, 736, 416, 736, 416, 768, 176, 768, 176, 928, 186.022, 928, 192, 922.047, 192, 784, 424, 784, 432, 775.742, 432, 752, 592, 752, 592, 880, 560, 880, 560, 992, 400, 992, 400, 1008, 576, 1008)
 
 [node name="Rocks2" type="CollisionPolygon2D" parent="IcePuzzle1/Borders/StaticBody2D"]
 build_mode = 1
-polygon = PackedVector2Array(448, 768, 576, 768, 576, 864, 560, 864, 560, 784, 448, 784)
+polygon = PackedVector2Array(448, 768, 576, 768, 576, 864, 560, 864, 560, 784, 453.159, 784, 448, 779.391)
 
 [node name="Rocks3" type="CollisionPolygon2D" parent="IcePuzzle1/Borders/StaticBody2D"]
 build_mode = 1
-polygon = PackedVector2Array(384, 992, 384, 1008, 368, 1008, 368, 1024, 240, 1024, 240, 1008, 176, 1008, 176, 944, 192, 944, 192, 992, 256, 992, 256, 1008, 368, 1008, 368, 992)
+polygon = PackedVector2Array(384, 992, 384, 1008, 368, 1008, 368, 1024, 240, 1024, 240, 1008, 176, 1008, 176, 944, 186.693, 944, 192, 949.568, 192, 992, 249.128, 992, 256, 997.852, 256, 1008, 368, 1008, 368, 992)
 
 [node name="IceTiles" type="TileMapLayer" parent="IcePuzzle1"]
 unique_name_in_owner = true
@@ -5938,7 +5938,7 @@ unique_name_in_owner = true
 tile_map_data = PackedByteArray("AAAWADoAAAABABIAAAAbADMAAAABABIAAAAQADYAAAABABIAAAAMADMAAAABABIAAAAYAD0AAAABABIAAAA=")
 tile_set = SubResource("TileSet_62a48")
 
-[node name="Morgan" parent="." instance=ExtResource("4_n60i2")]
+[node name="Morgan" parent="." instance=ExtResource("5_qb5qc")]
 position = Vector2(392, 1015)
 
 [node name="Camera2D" type="Camera2D" parent="Morgan"]

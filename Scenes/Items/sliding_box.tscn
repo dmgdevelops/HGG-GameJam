@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c58yphwslang2"]
 
-[ext_resource type="Script" uid="uid://c5vpbgi4ycmmt" path="res://Scripts/PushableBlock.gd" id="1_oej41"]
+[ext_resource type="Script" uid="uid://c5vpbgi4ycmmt" path="res://Scripts/ItemScripts/PushableBlock.gd" id="1_oej41"]
 [ext_resource type="Texture2D" uid="uid://blu4fxep745k0" path="res://Assets/box.png" id="1_sa5xk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oej41"]

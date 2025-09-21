@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://cp3othgqimikm"]
+[gd_scene load_steps=78 format=3 uid="uid://cp3othgqimikm"]
 
 [ext_resource type="Script" uid="uid://b5c0umy868tnb" path="res://Scripts/morgan.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://8d4yipr05fsr" path="res://Assets/MorganSprite.png" id="2_cvnsp"]
@@ -574,7 +574,11 @@ height = 18.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efa38"]
 radius = 3.0
-height = 10.0
+height = 6.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p20tw"]
+radius = 2.5
+height = 8.0
 
 [node name="Morgan" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_cvnsp")
@@ -594,3 +598,14 @@ disabled = true
 position = Vector2(0, 9)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_efa38")
+
+[node name="PushBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="PushBoxCollisionShape" type="CollisionShape2D" parent="PushBox"]
+position = Vector2(0, 2.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_p20tw")
+
+[connection signal="body_entered" from="PushBox" to="." method="_on_push_box_body_entered"]

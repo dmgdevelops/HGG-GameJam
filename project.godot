@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot Proj"
-run/main_scene="uid://dc86nmxxx1ran"
+run/main_scene="uid://bqva0g22rhsyd"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -59,6 +59,11 @@ dialogic_default_action={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_2="MorganPushBox"
+2d_physics/layer_3="PushableItems"
 
 [rendering]
 

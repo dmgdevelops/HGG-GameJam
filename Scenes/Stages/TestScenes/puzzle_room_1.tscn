@@ -1,12 +1,12 @@
 [gd_scene load_steps=18 format=4 uid="uid://bien0r5jmecs5"]
 
-[ext_resource type="Texture2D" uid="uid://oyflybc3mfbj" path="res://Assets/Dungeon_Tileset.png" id="1_w1x6p"]
-[ext_resource type="Script" uid="uid://cqda34lfur1ml" path="res://Scripts/puzzle_1.gd" id="2_qhgug"]
-[ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Characters/Morgan.tscn" id="3_oklb6"]
-[ext_resource type="PackedScene" uid="uid://tiagy1m5trll" path="res://Scenes/Items/page.tscn" id="4_fuxg7"]
+[ext_resource type="Texture2D" uid="uid://oyflybc3mfbj" path="res://Assets/Dungeon_Tileset.png" id="1_nor5h"]
+[ext_resource type="Script" uid="uid://cqda34lfur1ml" path="res://Scripts/PuzzleScripts/DSOTPuzzle1.gd" id="2_7k8dr"]
+[ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Characters/Morgan.tscn" id="3_hft3l"]
+[ext_resource type="PackedScene" uid="uid://tiagy1m5trll" path="res://Scenes/Items/page.tscn" id="4_jdciq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wh5yr"]
-texture = ExtResource("1_w1x6p")
+texture = ExtResource("1_nor5h")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -164,7 +164,7 @@ texture = ExtResource("1_w1x6p")
 sources/0 = SubResource("TileSetAtlasSource_wh5yr")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7de1"]
-texture = ExtResource("1_w1x6p")
+texture = ExtResource("1_nor5h")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -328,7 +328,7 @@ size = Vector2(32, 16)
 size = Vector2(32, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3i6nd"]
-texture = ExtResource("1_w1x6p")
+texture = ExtResource("1_nor5h")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -483,7 +483,7 @@ texture = ExtResource("1_w1x6p")
 11:12/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c24om"]
-texture = ExtResource("1_w1x6p")
+texture = ExtResource("1_nor5h")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -642,7 +642,7 @@ sources/0 = SubResource("TileSetAtlasSource_3i6nd")
 sources/1 = SubResource("TileSetAtlasSource_c24om")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3i041"]
-texture = ExtResource("1_w1x6p")
+texture = ExtResource("1_nor5h")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -800,7 +800,7 @@ texture = ExtResource("1_w1x6p")
 sources/0 = SubResource("TileSetAtlasSource_3i041")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w1x6p"]
-texture = ExtResource("1_w1x6p")
+texture = ExtResource("1_nor5h")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -964,7 +964,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAJAAwAAAAAAAEAAAAJAAwAAAAAAAIAAAAJAAw
 tile_set = SubResource("TileSet_c24om")
 
 [node name="Puzzle1" type="Node" parent="."]
-script = ExtResource("2_qhgug")
+script = ExtResource("2_7k8dr")
 
 [node name="Outlines" type="TileMapLayer" parent="Puzzle1"]
 tile_map_data = PackedByteArray("AAAKABcAAAADAAgAAAALABcAAAAEAAgAAAAMABcAAAAJAAUAAAANABcAAAALAAUAAAAOABcAAAADAAgAAAAPABcAAAAEAAgAAAAMAA4AAAAAAAsAAAAMAA8AAAACAAwAAAANAA4AAAABAAsAAAANAA8AAAADAAsAAAAMABAAAAAGAAkAAAANABAAAAAIAAkAAAAMABMAAAAHAAgAAAANABMAAAAHAAgAAAAMABUAAAAHAAgAAAANABUAAAAHAAgAAAAQABYAAAADAAsAAAAQABUAAAADAAsAAAAQABQAAAADAAsAAAAQABMAAAADAAsAAAAQABIAAAADAAsAAAAQABEAAAADAAsAAAAQABAAAAABAAsAAAAPABAAAAACAAsAAAAOABAAAAACAAsAAAALABAAAAACAAsAAAAKABAAAAACAAsAAAAJABAAAAAAAAsAAAAJABEAAAACAAwAAAAJABIAAAACAAwAAAAJABMAAAACAAwAAAAJABQAAAACAAwAAAAJABUAAAACAAwAAAAJABYAAAACAAwAAAAQABcAAAAEAAgAAAAJABcAAAADAAgAAAA=")
@@ -993,7 +993,7 @@ shape = SubResource("RectangleShape2D_j37cf")
 tile_map_data = PackedByteArray("AAAKABYAAAAIAAsAAAALABYAAAAIAAsAAAAMABYAAAAIAAsAAAANABYAAAAIAAsAAAAOABYAAAAIAAsAAAAPABYAAAAIAAsAAAAPABUAAAAIAAsAAAAOABUAAAAIAAsAAAAOABQAAAAIAAsAAAAPABQAAAAIAAsAAAAPABMAAAAIAAsAAAAOABMAAAAIAAsAAAAOABIAAAAIAAsAAAAPABIAAAAIAAsAAAAPABEAAAAIAAsAAAAOABEAAAAIAAsAAAANABEAAAAIAAsAAAANABIAAAAIAAsAAAAMABIAAAAIAAsAAAAMABEAAAAIAAsAAAALABEAAAAIAAsAAAAKABEAAAAIAAsAAAAKABIAAAAIAAsAAAALABIAAAAIAAsAAAALABMAAAAIAAsAAAAKABMAAAAIAAsAAAAKABQAAAAIAAsAAAAKABUAAAAIAAsAAAALABUAAAAIAAsAAAALABQAAAAIAAsAAAAMABQAAAAIAAsAAAANABQAAAAIAAsAAAA=")
 tile_set = SubResource("TileSet_3gfdn")
 
-[node name="Morgan" parent="." instance=ExtResource("3_oklb6")]
+[node name="Morgan" parent="." instance=ExtResource("3_hft3l")]
 z_index = 2
 position = Vector2(416, 432)
 
@@ -1019,10 +1019,10 @@ polygon = PackedVector2Array(384, 432, 16, 432, 16, 32, 816, 32, 816, 432, 448, 
 [node name="pages" type="Node2D" parent="."]
 z_index = 1
 
-[node name="page" parent="pages" instance=ExtResource("4_fuxg7")]
+[node name="page" parent="pages" instance=ExtResource("4_jdciq")]
 position = Vector2(344, 376)
 
-[node name="page1" parent="pages" instance=ExtResource("4_fuxg7")]
+[node name="page1" parent="pages" instance=ExtResource("4_jdciq")]
 position = Vector2(208, 240)
 
 [node name="DoorToBossRoom" type="TileMapLayer" parent="."]

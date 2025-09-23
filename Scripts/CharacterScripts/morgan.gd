@@ -7,6 +7,7 @@ class_name Player extends CharacterBody2D
 @onready var PushBox = $PushBox/PushBoxCollisionShape
 @onready var state_machine: PlayerStateMachine = $StateMachine
 
+signal DirectionChanged( int_direction : Vector2 )
 
 var speed = 100
 
@@ -86,6 +87,7 @@ func SetDirection() -> bool:
 		return false
 		
 	last_direction = new_dir
+	DirectionChanged.emit( new_dir )
 	animated_sprite.scale.x = -0.075 if last_direction == Vector2.LEFT else 0.075
 	return true
 	

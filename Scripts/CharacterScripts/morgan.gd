@@ -1,13 +1,17 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @onready var Hurtbox = $Hurtbox
 
 @onready var Walkbox = $Walkbox
 
 @onready var PushBox = $PushBox/PushBoxCollisionShape
+@onready var state_machine: PlayerStateMachine = $StateMachine
 
+signal DirectionChanged( int_direction : Vector2 )
 
 var speed = 100
+
+var direction : Vector2 = Vector2.ZERO
 
 var last_direction = Vector2.ZERO
 
@@ -24,6 +28,7 @@ var dirttiles
 
 func _ready():
 	animated_sprite = $AnimatedSprite2D
+	state_machine.Initialize(self)
 	icetiles = get_node_or_null("%IceTiles")
 	dirttiles = get_node_or_null("%DirtTiles")
 
@@ -31,29 +36,9 @@ func _physics_process(delta):
 	if is_sliding:
 		slide(delta)
 	else:
-		var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+		direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+		direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 		box_push_direction = direction
-		
-		velocity = direction * speed
-		
-		if direction != Vector2.ZERO:
-			last_direction = direction
-		
-		if direction.x != 0:
-			animated_sprite.play("run_right")
-		elif direction.y < 0:
-			animated_sprite.play("run_up")
-		elif direction.y > 0:
-			animated_sprite.play("run_down")
-		else:
-			if last_direction.x != 0:
-				animated_sprite.play("idle_right")
-			elif last_direction.y < 0:
-				animated_sprite.play("idle_up")
-			elif last_direction.y > 0:
-				animated_sprite.play("idle_down")
-		
-		animated_sprite.flip_h = last_direction.x < 0
 		
 		move_and_slide()
 
@@ -87,3 +72,35 @@ func slide(delta):
 func stop_sliding():
 	is_sliding = false
 	velocity = Vector2.ZERO
+
+func SetDirection() -> bool:
+	var new_dir : Vector2 = last_direction
+	if direction == Vector2.ZERO:
+		return false
+	
+	if direction.y == 0:
+		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
+	elif direction.x == 0:
+		new_dir = Vector2.UP if direction.y <0 else Vector2.DOWN
+		
+	if new_dir == last_direction:
+		return false
+		
+	last_direction = new_dir
+	DirectionChanged.emit( new_dir )
+	animated_sprite.scale.x = -0.075 if last_direction == Vector2.LEFT else 0.075
+	return true
+	
+func UpdateAnimation( state: String ) -> void:
+	animated_sprite.play( state + "_" + AnimDirection() )
+	pass
+	
+func AnimDirection() -> String:
+	if last_direction == Vector2.DOWN:
+		return "down"
+	elif last_direction == Vector2.UP:
+		return "up"
+	else:
+		return "right"
+		
+	

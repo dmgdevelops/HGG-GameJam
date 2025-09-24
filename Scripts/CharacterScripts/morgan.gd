@@ -28,6 +28,7 @@ var dirttiles
 
 func _ready():
 	animated_sprite = $AnimatedSprite2D
+	PlayerManager.player = self
 	state_machine.Initialize(self)
 	icetiles = get_node_or_null("%IceTiles")
 	dirttiles = get_node_or_null("%DirtTiles")

@@ -1,0 +1,210 @@
+[gd_scene load_steps=29 format=3 uid="uid://1swqs17fjtcj"]
+
+[ext_resource type="Script" uid="uid://bbvsrtwsq6jy4" path="res://Scripts/EnemyScripts/Bug.gd" id="1_xv02u"]
+[ext_resource type="Texture2D" uid="uid://pjypw2rd4icj" path="res://Assets/spider_spritesheet.png" id="2_0r566"]
+[ext_resource type="PackedScene" uid="uid://c164xkdlodxw0" path="res://Scenes/Generics/Hitbox.tscn" id="3_tli2y"]
+[ext_resource type="PackedScene" uid="uid://qv23fwf8h5tv" path="res://Scenes/Generics/Hurtbox.tscn" id="4_am2bn"]
+[ext_resource type="Script" uid="uid://cbocv8epv51q" path="res://Scripts/EnemyScripts/BugStateMachine.gd" id="5_0r566"]
+[ext_resource type="Script" uid="uid://kkvf8jvkcgfd" path="res://Scripts/EnemyScripts/Bug_State_Idle.gd" id="6_tli2y"]
+[ext_resource type="Script" uid="uid://0we5wejh30sv" path="res://Scripts/EnemyScripts/Bug_State_Wander.gd" id="7_am2bn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6pdov"]
+atlas = ExtResource("2_0r566")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqajc"]
+atlas = ExtResource("2_0r566")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eggi0"]
+atlas = ExtResource("2_0r566")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0enjr"]
+atlas = ExtResource("2_0r566")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mh6u"]
+atlas = ExtResource("2_0r566")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3c5o"]
+atlas = ExtResource("2_0r566")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx35p"]
+atlas = ExtResource("2_0r566")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_am2bn"]
+atlas = ExtResource("2_0r566")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fofj"]
+atlas = ExtResource("2_0r566")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbc5d"]
+atlas = ExtResource("2_0r566")
+region = Rect2(32, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhtvn"]
+atlas = ExtResource("2_0r566")
+region = Rect2(48, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_818e8"]
+atlas = ExtResource("2_0r566")
+region = Rect2(0, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_107pj"]
+atlas = ExtResource("2_0r566")
+region = Rect2(16, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nskb5"]
+atlas = ExtResource("2_0r566")
+region = Rect2(32, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f851d"]
+atlas = ExtResource("2_0r566")
+region = Rect2(48, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6w0l"]
+atlas = ExtResource("2_0r566")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_652l2"]
+atlas = ExtResource("2_0r566")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohg68"]
+atlas = ExtResource("2_0r566")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtqnk"]
+atlas = ExtResource("2_0r566")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqajc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6pdov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqajc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eggi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0enjr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mh6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3c5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx35p")
+}],
+"loop": false,
+"name": &"destroy",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_am2bn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fofj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbc5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhtvn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_818e8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_107pj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nskb5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f851d")
+}],
+"loop": false,
+"name": &"stun",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6w0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_652l2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohg68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtqnk")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eggi0"]
+radius = 5.09902
+
+[node name="Bug" type="CharacterBody2D"]
+collision_layer = 128
+script = ExtResource("1_xv02u")
+
+[node name="BugShape" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array(-8, -6, 8, -6, 8, 6, -8, 6)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yqajc")
+animation = &"destroy"
+
+[node name="Hitbox" parent="." instance=ExtResource("3_tli2y")]
+collision_mask = 8
+
+[node name="BugHitbox" type="CollisionPolygon2D" parent="Hitbox"]
+build_mode = 1
+polygon = PackedVector2Array(-6, -5, 6, -5, 6, 5, -6, 5)
+
+[node name="Hurtbox" parent="." instance=ExtResource("4_am2bn")]
+collision_layer = 256
+
+[node name="BugHurtbox" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("CircleShape2D_eggi0")
+debug_color = Color(0.626321, 0.529568, 0.121867, 0.42)
+
+[node name="BugStateMachine" type="Node" parent="."]
+script = ExtResource("5_0r566")
+
+[node name="Idle" type="Node" parent="BugStateMachine" node_paths=PackedStringArray("after_idle_state")]
+script = ExtResource("6_tli2y")
+after_idle_state = NodePath("../Wander")
+
+[node name="Wander" type="Node" parent="BugStateMachine" node_paths=PackedStringArray("next_state")]
+script = ExtResource("7_am2bn")
+wander_speed = 30.0
+next_state = NodePath("../Idle")
+
+[node name="Stun" type="Node" parent="BugStateMachine"]
+
+[node name="Destroy" type="Node" parent="BugStateMachine"]

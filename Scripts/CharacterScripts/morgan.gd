@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-@onready var Hurtbox = $Hurtbox
+@onready var Hurtbox = $Interactions/Hurtbox
 
 @onready var Walkbox = $Walkbox
 
@@ -47,9 +47,11 @@ func _on_push_box_body_entered(body):
 	if body is PushableBlock:
 		body.try_to_push(box_push_direction)
 
-func start_sliding(direction:Vector2):
+func start_sliding(s_direction:Vector2):
 	is_sliding=true
-	slide_direction=direction.normalized()
+	slide_direction=s_direction.normalized()
+	last_direction=slide_direction
+	UpdateAnimation("idle")
 	
 func slide(delta):
 	velocity = slide_direction * speed

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://b8ceh7s5ksmm7"]
+[gd_scene load_steps=9 format=4 uid="uid://b8ceh7s5ksmm7"]
 
 [ext_resource type="Texture2D" uid="uid://caqw32masggxr" path="res://Assets/forestgrass1.png" id="1_vttql"]
 [ext_resource type="Texture2D" uid="uid://cnts08k876525" path="res://Assets/exterior.png" id="2_whhcu"]
 [ext_resource type="PackedScene" uid="uid://c58yphwslang2" path="res://Scenes/Items/sliding_box.tscn" id="3_mouhu"]
 [ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Characters/Morgan.tscn" id="4_e0ksn"]
+[ext_resource type="PackedScene" uid="uid://1swqs17fjtcj" path="res://Scenes/Enemies/bug.tscn" id="5_whhcu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ny3x0"]
 texture = ExtResource("1_vttql")
@@ -4955,8 +4956,12 @@ position = Vector2(300, 310)
 [node name="SlidingBox12" parent="BoxesPuzzle1" instance=ExtResource("3_mouhu")]
 position = Vector2(236, 310)
 
+[node name="Bug" parent="." instance=ExtResource("5_whhcu")]
+position = Vector2(180, 405)
+collision_layer = 256
+
 [node name="Morgan" parent="." instance=ExtResource("4_e0ksn")]
-position = Vector2(269, 381)
+position = Vector2(265, 379)
 
 [node name="Camera2D" type="Camera2D" parent="Morgan"]
 zoom = Vector2(3, 3)
@@ -4965,3 +4970,5 @@ limit_top = 0
 limit_right = 608
 limit_bottom = 528
 editor_draw_limits = true
+
+[editable path="Morgan"]

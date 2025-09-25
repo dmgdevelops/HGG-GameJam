@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://cp3othgqimikm"]
+[gd_scene load_steps=101 format=3 uid="uid://cp3othgqimikm"]
 
 [ext_resource type="Script" uid="uid://b5c0umy868tnb" path="res://Scripts/CharacterScripts/morgan.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://8d4yipr05fsr" path="res://Assets/MorganSprite.png" id="2_cvnsp"]
@@ -8,7 +8,9 @@
 [ext_resource type="Script" uid="uid://bh854fw0antdg" path="res://Scripts/state_walk.gd" id="5_lhtui"]
 [ext_resource type="Script" uid="uid://bxyd5mk1cgyh6" path="res://Scripts/state_attack.gd" id="7_8xnp4"]
 [ext_resource type="Script" uid="uid://b3gujqfifojk" path="res://Scripts/CharacterScripts/PlayerInteractions.gd" id="8_1vmav"]
+[ext_resource type="Script" uid="uid://17o00n3sw0b7" path="res://Scripts/state_stun.gd" id="8_ai170"]
 [ext_resource type="PackedScene" uid="uid://qv23fwf8h5tv" path="res://Scenes/Generics/Hurtbox.tscn" id="9_4j4hc"]
+[ext_resource type="Script" uid="uid://dh2hx5jh1b2b0" path="res://Scripts/Generics/hitbox.gd" id="10_4j4hc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("2_cvnsp")
@@ -650,8 +652,64 @@ height = 6.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p20tw"]
 size = Vector2(2.5, 8)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ai170"]
+radius = 3.0
+height = 10.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_ai170"]
 radius = 5.0
+
+[sub_resource type="Animation" id="Animation_qvlsx"]
+resource_name = "Stun"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.603615, 0.753144, 0.900965, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.117647), Color(1, 1, 1, 1), Color(1, 1, 1, 0.27451), Color(1, 1, 1, 1), Color(1, 1, 1, 0.592157), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0hy25"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ecacd"]
+resource_name = "Default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tavxo"]
+_data = {
+&"Default": SubResource("Animation_ecacd"),
+&"RESET": SubResource("Animation_0hy25"),
+&"Stun": SubResource("Animation_qvlsx")
+}
 
 [node name="Morgan" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_cvnsp")
@@ -689,6 +747,21 @@ script = ExtResource("5_lhtui")
 script = ExtResource("7_8xnp4")
 decelerate_speed = 8.0
 
+[node name="Stun" type="Node" parent="StateMachine"]
+script = ExtResource("8_ai170")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("10_4j4hc")
+metadata/_custom_type_script = "uid://dh2hx5jh1b2b0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_ai170")
+debug_color = Color(0.545098, 0.556863, 0.247059, 0.729412)
+
 [node name="Interactions" type="Node2D" parent="."]
 script = ExtResource("8_1vmav")
 
@@ -699,5 +772,10 @@ monitoring = false
 position = Vector2(0, 10)
 shape = SubResource("CircleShape2D_ai170")
 debug_color = Color(0.929412, 0.164706, 0.0352941, 0.419608)
+
+[node name="EffectAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tavxo")
+}
 
 [connection signal="body_entered" from="PushBox" to="." method="_on_push_box_body_entered"]

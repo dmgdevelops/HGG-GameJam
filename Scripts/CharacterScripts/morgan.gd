@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-@onready var hurtbox = $Hurtbox
+@onready var hurtbox = $Interactions/Hurtbox
 
 @onready var Walkbox = $Walkbox
 

@@ -1,7 +1,7 @@
 class_name Bug extends CharacterBody2D
 
 signal direction_changed(new_direction : Vector2)
-signal enemy_damaged()
+signal enemy_damaged( hurtbox: Hurtbox )
 
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
@@ -50,9 +50,9 @@ func update_animation(state:String) -> void:
 	sprite.play(state)
 	
 	
-func _take_damage(damage: int) -> void:
-	hp -= damage
-	print("took damage")
+func _take_damage( hurtbox : Hurtbox) -> void:
+	hp -= hurtbox.damage
+	print("took damage " + str(hp))
 	enemy_damaged.emit()
 #func anim_direction() -> String:
 	#if cardinal_direction == Vector2.DOWN:

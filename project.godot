@@ -36,6 +36,10 @@ layout/style_list=["res://Assets/Dialogue/VN_Style.tres"]
 layout/default_style="res://Assets/Dialogue/VN_Style.tres"
 variables={}
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Godot Proj"
@@ -64,6 +68,7 @@ dialogic_default_action={
 
 2d_physics/layer_2="MorganPushBox"
 2d_physics/layer_3="PushableItems"
+2d_physics/layer_5="Actionable"
 
 [rendering]
 

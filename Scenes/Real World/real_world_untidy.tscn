@@ -1,0 +1,138 @@
+[gd_scene load_steps=10 format=3 uid="uid://6k3fphu4mfsh"]
+
+[ext_resource type="Texture2D" uid="uid://7v3c8t6h4hrf" path="res://Assets/Real_World/irl_room_mess.png" id="1_07ugg"]
+[ext_resource type="Texture2D" uid="uid://c83ho7r54jyjy" path="res://Assets/Real_World/room_untidy_overlay.png" id="2_q4wt6"]
+[ext_resource type="PackedScene" uid="uid://g88m6a5cndxk" path="res://Scenes/Real World/morgan_tidy.tscn" id="3_w4a15"]
+[ext_resource type="Shader" uid="uid://dewy242g8asir" path="res://Shaders/color_filter.gdshader" id="4_j0yb8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0yb8"]
+size = Vector2(29.5, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxh2m"]
+size = Vector2(32.5, 95.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6edkh"]
+size = Vector2(60, 42)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j0yb8"]
+radius = 23.3452
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0yb8"]
+shader = ExtResource("4_j0yb8")
+shader_parameter/mode = 1
+shader_parameter/linearColorSpace = true
+shader_parameter/color1 = Color(0.249626, 0.235921, 0.663565, 1)
+shader_parameter/color2 = Color(0.25433, 0.209557, 0.50892, 1)
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/opacity = 0.822
+
+[node name="Real_World_untidy" type="Node2D"]
+
+[node name="stage" type="CanvasLayer" parent="."]
+
+[node name="void" type="ColorRect" parent="stage"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="stage"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="BG" type="TextureRect" parent="stage/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_07ugg")
+
+[node name="overlay_9" type="TextureRect" parent="stage/Control"]
+z_index = 99
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -125.0
+offset_right = 175.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_q4wt6")
+
+[node name="Morgan_Tidy" parent="stage" instance=ExtResource("3_w4a15")]
+position = Vector2(576, 324)
+scale = Vector2(0.553, 0.553)
+
+[node name="border" type="StaticBody2D" parent="stage"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stage/border"]
+position = Vector2(0, -1)
+build_mode = 1
+polygon = PackedVector2Array(307, 251, 307, 477, 404, 479, 448, 477, 448, 506, 583, 515, 584, 552, 636, 555, 638, 512, 653, 512, 654, 482, 733, 483, 828, 483, 828, 431, 774, 433, 772, 305, 781, 305, 779, 297, 735, 300, 732, 248, 636, 245, 637, 221, 495, 222, 493, 245)
+
+[node name="chair" type="StaticBody2D" parent="stage"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/chair"]
+position = Vector2(741.75, 344)
+shape = SubResource("RectangleShape2D_j0yb8")
+
+[node name="lamp" type="StaticBody2D" parent="stage"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/lamp"]
+position = Vector2(324, 358.312)
+shape = SubResource("RectangleShape2D_jxh2m")
+
+[node name="table" type="StaticBody2D" parent="stage"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/table"]
+position = Vector2(565, 339)
+shape = SubResource("RectangleShape2D_6edkh")
+
+[node name="actionable" type="Area2D" parent="stage/table"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/table/actionable"]
+position = Vector2(787, 384)
+shape = SubResource("CircleShape2D_j0yb8")
+
+[node name="Night_Shader" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Control" type="Control" parent="Night_Shader"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Night_Shader/Control"]
+material = SubResource("ShaderMaterial_j0yb8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

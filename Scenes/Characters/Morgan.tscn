@@ -717,7 +717,8 @@ script = ExtResource("1_cvnsp")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.075, 0.075)
 sprite_frames = SubResource("SpriteFrames_vgqql")
-animation = &"slash_down"
+
+animation = &"run_up"
 autoplay = "idle_down"
 
 [node name="Walkbox" type="CollisionShape2D" parent="."]

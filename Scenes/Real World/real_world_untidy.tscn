@@ -26,7 +26,7 @@ shader_parameter/color2 = Color(0.313793, 0.375644, 0.969587, 1)
 shader_parameter/direction = Vector2(1, 1)
 shader_parameter/opacity = 0.822
 
-[node name="Real_World_untidy" type="Node2D"]
+[node name="Real_World_untidy2" type="Node2D"]
 
 [node name="stage" type="CanvasLayer" parent="."]
 

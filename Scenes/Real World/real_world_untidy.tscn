@@ -21,8 +21,8 @@ radius = 23.3452
 shader = ExtResource("4_j0yb8")
 shader_parameter/mode = 1
 shader_parameter/linearColorSpace = true
-shader_parameter/color1 = Color(0.249626, 0.235921, 0.663565, 1)
-shader_parameter/color2 = Color(0.25433, 0.209557, 0.50892, 1)
+shader_parameter/color1 = Color(0.199782, 0.206651, 0.813531, 1)
+shader_parameter/color2 = Color(0.313793, 0.375644, 0.969587, 1)
 shader_parameter/direction = Vector2(1, 1)
 shader_parameter/opacity = 0.822
 

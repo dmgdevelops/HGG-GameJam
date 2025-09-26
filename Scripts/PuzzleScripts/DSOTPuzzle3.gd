@@ -12,14 +12,15 @@ extends Node
 var cracked_tiles := {}
 
 #max number of crackable tiles (will be different for each puzzle)
-var numCrackableTiles = 32
+var numCrackableTiles = 144
 
 #gap tiles for unreachable area (will be different for each puzzle)
-var leftTile = Vector2i(12,16)
-var rightTile = Vector2i(13,16)
+var leftTile = Vector2i(27,8)
+var middleTile = Vector2i(28,8)
+var rightTile = Vector2i(29,8)
 
 #if morgan fails a puzzle, where she respawns (will be different for each puzzle)
-var morgan_respawn_tile = Vector2i(208,392)
+var morgan_respawn_tile = Vector2i(328,200)
 
 var puzzleFinished = false
 
@@ -70,6 +71,7 @@ func finish_puzzle():
 	
 	#visually change gap to filled in tiles
 	outlineTiles.set_cell(leftTile,TILE_FRESH, Vector2i(9,12))
+	outlineTiles.set_cell(middleTile, TILE_FRESH, Vector2i(9,12))
 	outlineTiles.set_cell(rightTile,TILE_FRESH, Vector2i(9,12))
 	
 	puzzleFinished = true

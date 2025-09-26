@@ -52,4 +52,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		if actionables.size() > 0:
 			actionables[0].action()
+			print("light_switch_pressed")
 		print("enter_pressed")

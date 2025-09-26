@@ -22,7 +22,7 @@ func _ready():
 	hitbox.Damaged.connect(_take_damage)
 	pass
 	
-func _process(delta):
+func _process( _delta):
 	pass
 
 func _physics_process(_delta):

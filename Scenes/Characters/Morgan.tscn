@@ -410,7 +410,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wpjfl")
 }],
-"loop": true,
+"loop": false,
 "name": &"jump_right",
 "speed": 5.0
 }, {
@@ -652,9 +652,8 @@ height = 6.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p20tw"]
 size = Vector2(2.5, 8)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ai170"]
-radius = 3.0
-height = 10.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvlsx"]
+radius = 3.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ai170"]
 radius = 5.0
@@ -758,8 +757,8 @@ script = ExtResource("10_4j4hc")
 metadata/_custom_type_script = "uid://dh2hx5jh1b2b0"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(0, 4)
-shape = SubResource("CapsuleShape2D_ai170")
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_qvlsx")
 debug_color = Color(0.545098, 0.556863, 0.247059, 0.729412)
 
 [node name="Interactions" type="Node2D" parent="."]

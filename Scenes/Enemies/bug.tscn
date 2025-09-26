@@ -188,8 +188,6 @@ animation = &"destroy"
 shape = SubResource("CircleShape2D_am2bn")
 
 [node name="Hurtbox" parent="." instance=ExtResource("4_am2bn")]
-collision_layer = 256
-collision_mask = 0
 
 [node name="BugHurtbox" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_eggi0")

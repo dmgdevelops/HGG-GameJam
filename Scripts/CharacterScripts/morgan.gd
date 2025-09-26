@@ -8,6 +8,7 @@ class_name Player extends CharacterBody2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var hitbox: Hitbox = $Hitbox
 @onready var effect_animator: AnimationPlayer = $EffectAnimator
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
 signal DirectionChanged( int_direction : Vector2 )
@@ -24,15 +25,13 @@ var last_direction = Vector2.ZERO
 var box_push_direction = Vector2.ZERO
 var slide_direction=Vector2.ZERO
 
-var animated_sprite
-
 
 var is_sliding = false
 var icetiles
 var dirttiles
 
 func _ready():
-	animated_sprite = $AnimatedSprite2D
+
 	PlayerManager.player = self
 	state_machine.Initialize(self)
 	hitbox.Damaged.connect( _take_damage )

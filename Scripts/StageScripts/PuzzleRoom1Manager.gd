@@ -3,7 +3,7 @@ extends Node
 @onready var doorClosed = $SmallDoor/ClosedDoor
 @onready var doorOpen = $SmallDoor/OpenDoor
 @onready var doorBarrier = $SmallDoor/DoorCollisions/DoorBarrier
-var numPagesToCollect = 4
+var numPagesToCollect = 3
 
 func _ready():
 	pass

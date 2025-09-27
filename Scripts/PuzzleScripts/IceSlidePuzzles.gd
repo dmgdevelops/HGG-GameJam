@@ -1,14 +1,14 @@
 extends Node2D
 
 @onready var ground = $"../Ground"
-@onready var icetiles = $IceTiles
-@onready var dirttiles = $IceTiles/DirtTiles
+@onready var icetiles = %IceTiles
+@onready var dirttiles = %DirtTiles
 @onready var morgan = $"../Morgan"
 
-#ID 0 Atlas(1,22) (IceTiles)
-#ID 0 Atlas(1,18) (DirtTiles)
-const TILE_ID=0
-
+#ID 1 (IceTiles)
+#ID 2 (DirtTiles)
+const TILE_ID_ICE=1
+const TILE_ID_SNOW=2
 var current_tile_coordinates
 var last_tile_coordinates
 
@@ -30,10 +30,10 @@ func _physics_process(delta):
 	var tile_id_ice = icetiles.get_cell_source_id(current_tile_coordinates)
 	var tile_id_dirt= dirttiles.get_cell_source_id(current_tile_coordinates)
 	
-	if tile_id_dirt == TILE_ID:
+	if tile_id_dirt == TILE_ID_SNOW:
 		morgan.velocity = direction * morgan.speed
 		morgan.move_and_collide(morgan.velocity * delta)
-	elif tile_id_ice == TILE_ID:
+	elif tile_id_ice == TILE_ID_ICE:
 		morgan.start_sliding(direction)
 
 func get_cardinal_direction(vec):

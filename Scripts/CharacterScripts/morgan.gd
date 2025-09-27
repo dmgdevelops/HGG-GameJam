@@ -66,9 +66,7 @@ func slide(delta):
 	var tile_id_ice = icetiles.get_cell_source_id(current_tile_coordinates)
 	var tile_id_dirt= dirttiles.get_cell_source_id(current_tile_coordinates)
 	
-	if tile_id_dirt != -1:
-		stop_sliding()
-	elif tile_id_ice == -1:
+	if tile_id_dirt != -1 or tile_id_ice == -1:
 		stop_sliding()
 	
 

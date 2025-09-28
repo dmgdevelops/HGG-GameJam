@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ip8oqkoyj0yp"
-path="res://.godot/imported/room_untidy_overlay.png-d4dbf390b37b3f2f494a6d0a9b1b031e.ctex"
+uid="uid://bjbtcqxle2c3i"
+path="res://.godot/imported/mini_table_mess.png-cd55c78e64052ef3ce13df44298b941a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Real_World/room_untidy_overlay.png"
-dest_files=["res://.godot/imported/room_untidy_overlay.png-d4dbf390b37b3f2f494a6d0a9b1b031e.ctex"]
+source_file="res://Assets/Real_World/mini_table_mess.png"
+dest_files=["res://.godot/imported/mini_table_mess.png-cd55c78e64052ef3ce13df44298b941a.ctex"]
 
 [params]
 

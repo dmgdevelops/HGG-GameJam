@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ip8oqkoyj0yp"
-path="res://.godot/imported/room_untidy_overlay.png-d4dbf390b37b3f2f494a6d0a9b1b031e.ctex"
+uid="uid://bqiky2r3yw4pk"
+path="res://.godot/imported/chair_mess.png-6abcd2af3df4deb3004d7b12d3040ba5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Real_World/room_untidy_overlay.png"
-dest_files=["res://.godot/imported/room_untidy_overlay.png-d4dbf390b37b3f2f494a6d0a9b1b031e.ctex"]
+source_file="res://Assets/Real_World/chair_mess.png"
+dest_files=["res://.godot/imported/chair_mess.png-6abcd2af3df4deb3004d7b12d3040ba5.ctex"]
 
 [params]
 

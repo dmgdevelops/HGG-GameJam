@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ip8oqkoyj0yp"
-path="res://.godot/imported/room_untidy_overlay.png-d4dbf390b37b3f2f494a6d0a9b1b031e.ctex"
+uid="uid://c2de836k1c7f6"
+path="res://.godot/imported/Morgan_photoframe.png-fc49e8360a22f6bc76e9e6b96537c65d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Real_World/room_untidy_overlay.png"
-dest_files=["res://.godot/imported/room_untidy_overlay.png-d4dbf390b37b3f2f494a6d0a9b1b031e.ctex"]
+source_file="res://Assets/Real_World/Morgan_photoframe.png"
+dest_files=["res://.godot/imported/Morgan_photoframe.png-fc49e8360a22f6bc76e9e6b96537c65d.ctex"]
 
 [params]
 

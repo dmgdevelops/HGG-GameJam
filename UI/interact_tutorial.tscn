@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://3s6bo2n1sgrd"]
+
+[ext_resource type="Theme" uid="uid://cg8d5nl04pbrv" path="res://UI/Resources/move_tutorial.tres" id="1_3rlvg"]
+
+[node name="Interact_tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_3rlvg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Z"
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Interact"

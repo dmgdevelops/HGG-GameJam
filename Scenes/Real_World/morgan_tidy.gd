@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var actionable_finder: Area2D = $Direction/Actionable_Finder
 
-# real world Morgan spritesheet png is still a mess
+
 
 # basic character movement I stole from the internet
 @export var animation_player : AnimationPlayer
@@ -35,8 +35,9 @@ func _physics_process(delta: float) -> void:
 		animation_direction = "up"
 
 
+# character interaction
 func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("attack"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		
 		if actionables.size() > 0:

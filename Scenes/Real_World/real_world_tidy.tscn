@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c3ms75y6ihv5w"]
+[gd_scene load_steps=28 format=3 uid="uid://c3ms75y6ihv5w"]
 
 [ext_resource type="Texture2D" uid="uid://bnne6agtdhj7c" path="res://Assets/Real_World/room_irl_pix.png" id="1_rli47"]
 [ext_resource type="Script" uid="uid://bh3lv5uom1wj0" path="res://Scenes/Real_World/real_world_tidy.gd" id="1_tlqwr"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://blfkv2h6fkxnn" path="res://Assets/Real_World/chair_w.png" id="7_y4456"]
 [ext_resource type="Texture2D" uid="uid://c4ur3ttog4c3x" path="res://Assets/Real_World/lamp_warm.png" id="8_lm5xm"]
 [ext_resource type="Texture2D" uid="uid://cti5uu356is3e" path="res://Assets/Real_World/mini_table.png" id="9_tarai"]
-[ext_resource type="Texture2D" uid="uid://c2de836k1c7f6" path="res://Assets/Real_World/Morgan_photoframe.png" id="10_5llra"]
 [ext_resource type="PackedScene" uid="uid://d3sfg075o3bew" path="res://Scenes/Real_World/non_dialogue_action.tscn" id="10_63hwx"]
 [ext_resource type="Texture2D" uid="uid://dkd0rsf2l3t1x" path="res://Assets/Real_World/table.png" id="10_kx161"]
 [ext_resource type="PackedScene" uid="uid://dgjlqge7kckck" path="res://Scenes/Real_World/Dialogue/dialogue_sprite_manager.tscn" id="11_kixbj"]
@@ -223,12 +222,12 @@ debug_color = Color(0.656387, 0.36393, 0.92404, 0.42)
 z_index = 100
 position = Vector2(217, 56)
 scale = Vector2(2, 2)
-texture = ExtResource("10_5llra")
 
 [node name="Non-Dialogue_Action" parent="stage/Room_entitites/Room_mask/Control/photoframe" node_paths=PackedStringArray("item") instance=ExtResource("10_63hwx")]
 z_index = 100
 collision_layer = 16
 item = NodePath("../Group_photo")
+fade_speed = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/photoframe/Non-Dialogue_Action"]
 z_index = 1
@@ -237,13 +236,13 @@ shape = SubResource("CircleShape2D_3twv7")
 debug_color = Color(0.602835, 0.411913, 0.901782, 0.42)
 
 [node name="Group_photo" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control/photoframe"]
-visible = false
 position = Vector2(-116, -34)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("12_lf6ra")
 
 [node name="Light_switch_shader" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="Control" type="Control" parent="Light_switch_shader"]
 layout_mode = 3
@@ -265,11 +264,12 @@ grow_vertical = 2
 [node name="DialogueSprite" type="CanvasLayer" parent="."]
 layer = 101
 
-[node name="DialogueSpriteManager" parent="DialogueSprite" node_paths=PackedStringArray("character_sprite", "dialogue_overlay") instance=ExtResource("11_kixbj")]
+[node name="DialogueSpriteManager" parent="DialogueSprite" node_paths=PackedStringArray("character_sprite", "dialogue_overlay", "player") instance=ExtResource("11_kixbj")]
 unique_name_in_owner = true
 character_sprite = NodePath("Sprite2D")
 dialogue_overlay = NodePath("Control")
 fade_speed = 0.5
+player = NodePath("../../stage/Room_entitites/Room_mask/Control/Morgan_Tidy")
 
 [node name="Control" type="Control" parent="DialogueSprite/DialogueSpriteManager"]
 layout_mode = 3

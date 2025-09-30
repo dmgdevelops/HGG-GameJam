@@ -6,7 +6,5 @@ extends Node2D
 # Scene States
 var test = "j"
 
-func _ready() -> void:
-	print(DialogueSprite, DialogueBManager)
+func _ready() -> void: pass
 	
-# pass the dialogue box var to tweening func

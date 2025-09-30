@@ -1,13 +1,5 @@
-join Morgan left [animation="Fade In"]
-Morgan: Where am I? Why do my clothes look different?
+join Morgan center [animation="Fade In"]
+Morgan: Where... am I? These clothes...
 Morgan: All I can remember is I was trying to finish reading my book and I knocked out.
 Morgan: Could this be a dream?
-leave Morgan [animation="Fade Out" wait="true"]
-[wait time="4.0"]
-[signal arg="DarkMorgan"]
-join DarkMorgan center [animation="Fade In" length="1.5" wait="true"]
-Morgan: Who is that and why does she look like me?
-update DarkMorgan right [move_time="1.5"]
-DarkMorgan: And what are you doing here? We can't have that now can we...
-DarkMorgan: You have no control here or over yourself! Begone!
 [end_timeline]

@@ -4,12 +4,13 @@
 [ext_resource type="Script" uid="uid://d3egudrr38xb" path="res://Scripts/Generics/heart_gui.gd" id="1_y1ltp"]
 
 [node name="Heart" type="Control"]
-custom_minimum_size = Vector2(9, 9)
+custom_minimum_size = Vector2(18, 18)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_y1ltp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("1_lhcst")
 centered = false
 hframes = 7

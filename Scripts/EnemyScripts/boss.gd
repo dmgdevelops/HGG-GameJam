@@ -1,11 +1,11 @@
-class_name Bug extends CharacterBody2D
+class_name Boss extends CharacterBody2D
 
 signal direction_changed(new_direction : Vector2)
 signal enemy_damaged( hurtbox: Hurtbox )
 
 const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP]
 
-@export var hp : int = 2
+@export var hp : int = 10
 
 var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
@@ -14,7 +14,7 @@ var invulnerable : bool = false
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox : Hitbox = $Hitbox
-@onready var state_machine : BugStateMachine = $BugStateMachine
+@onready var state_machine : BossStateMachine = $BossStateMachine
 
 func _ready():
 	state_machine.initialize(self)
@@ -46,8 +46,7 @@ func set_direction(_new_direction:Vector2) -> bool:
 	return true
 	
 func update_animation(state:String) -> void:
-	#sprite.play(state + "_" + anim_direction())
-	sprite.play(state)
+	sprite.play(state + "_" + anim_direction())
 	
 	
 func _take_damage( hurtbox : Hurtbox) -> void:
@@ -57,10 +56,11 @@ func _take_damage( hurtbox : Hurtbox) -> void:
 		enemy_damaged.emit()
 	else:
 		self.queue_free()
-#func anim_direction() -> String:
-	#if cardinal_direction == Vector2.DOWN:
-		#return "down"
-	#elif cardinal_direction == Vector2.UP:
-		#return "up"
-	#else:
-		#return "side"
+		
+func anim_direction() -> String:
+	if cardinal_direction == Vector2.DOWN:
+		return "down"
+	elif cardinal_direction == Vector2.UP:
+		return "up"
+	else:
+		return "side"

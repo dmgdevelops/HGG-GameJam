@@ -1,15 +1,9 @@
 extends Node2D
 
 @onready var ground = $"../Ground"
-<<<<<<< HEAD:Scripts/PuzzleScripts/IceSlidePuzzle1.gd
-@onready var _icetiles = $IceTiles
-@onready var _dirttiles = $IceTiles/DirtTiles
+@onready var _icetiles = %IceTiles
+@onready var _dirttiles = %DirtTiles
 var morgan : Player 
-=======
-@onready var icetiles = %IceTiles
-@onready var dirttiles = %DirtTiles
-@onready var morgan = $"../Morgan"
->>>>>>> FinalPuzzleScenes:Scripts/PuzzleScripts/IceSlidePuzzles.gd
 
 #ID 1 (IceTiles)
 #ID 2 (DirtTiles)

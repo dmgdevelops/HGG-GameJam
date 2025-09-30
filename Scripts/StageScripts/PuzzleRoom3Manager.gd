@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 @onready var doorClosed = $SmallDoor/ClosedDoor
 @onready var doorOpen = $SmallDoor/OpenDoor
@@ -6,6 +6,8 @@ extends Node
 var numEnemiesSlayed = 3
 
 func _ready():
+	self.y_sort_enabled = true
+	PlayerManager.set_as_parent( self )
 	pass
 
 func _process(_delta):

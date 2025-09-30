@@ -56,6 +56,7 @@ func _take_damage( hurtbox : Hurtbox) -> void:
 	if hp > 0:
 		enemy_damaged.emit()
 	else:
+		Global.morgan_enemies_slayed+=1
 		self.queue_free()
 #func anim_direction() -> String:
 	#if cardinal_direction == Vector2.DOWN:

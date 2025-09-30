@@ -1,15 +1,24 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxld05w4w36ib"]
+[gd_scene load_steps=31 format=3 uid="uid://cxld05w4w36ib"]
 
-[ext_resource type="Script" uid="uid://bh3lv5uom1wj0" path="res://Scenes/Real_World/real_world_tidy.gd" id="1_7ugby"]
+[ext_resource type="Script" uid="uid://bof5evdssfmcc" path="res://Scenes/Real_World/real_world_untidy.gd" id="1_okmly"]
 [ext_resource type="Texture2D" uid="uid://7v3c8t6h4hrf" path="res://Assets/Real_World/room_untidy.png" id="2_7ugby"]
 [ext_resource type="Texture2D" uid="uid://bvqtad2vo4rxk" path="res://Assets/Real_World/room_clip.png" id="4_8gtjo"]
-[ext_resource type="PackedScene" uid="uid://g88m6a5cndxk" path="res://Scenes/Real_World/morgan_tidy.tscn" id="5_j7pwk"]
+[ext_resource type="PackedScene" uid="uid://bop56mw41ndtn" path="res://Scenes/Real_World/morgan_untidy.tscn" id="4_co1fq"]
 [ext_resource type="Texture2D" uid="uid://bqiky2r3yw4pk" path="res://Assets/Real_World/chair_mess.png" id="6_d4jb4"]
 [ext_resource type="PackedScene" uid="uid://cvoy11qvr843" path="res://Scenes/Real_World/actionable.tscn" id="7_id0qg"]
 [ext_resource type="Texture2D" uid="uid://c4ur3ttog4c3x" path="res://Assets/Real_World/lamp_warm.png" id="8_qjmvg"]
 [ext_resource type="Texture2D" uid="uid://bjbtcqxle2c3i" path="res://Assets/Real_World/mini_table_mess.png" id="9_8gtjo"]
+[ext_resource type="Texture2D" uid="uid://c2de836k1c7f6" path="res://Assets/Real_World/Morgan_photoframe.png" id="10_id0qg"]
 [ext_resource type="Texture2D" uid="uid://dmhao2e6yjh16" path="res://Assets/Real_World/table_mess.png" id="10_j7pwk"]
+[ext_resource type="PackedScene" uid="uid://dgjlqge7kckck" path="res://Scenes/Real_World/Dialogue/dialogue_sprite_manager.tscn" id="11_d4jb4"]
+[ext_resource type="Shader" uid="uid://o38x7xp1m2p3" path="res://Shaders/item_shine.gdshader" id="11_okmly"]
+[ext_resource type="Texture2D" uid="uid://tagdc3erff2y" path="res://Assets/Real_World/book.png" id="11_qjmvg"]
 [ext_resource type="Shader" uid="uid://dewy242g8asir" path="res://Shaders/color_filter.gdshader" id="11_txxbo"]
+[ext_resource type="Texture2D" uid="uid://ci8uj8ug5202x" path="res://Assets/Dialogue/dialogueoverlay_gold.png" id="12_8gtjo"]
+[ext_resource type="Texture2D" uid="uid://cq8qavw6dhit5" path="res://Assets/Real_World/irl_mess_final.png" id="13_j7pwk"]
+[ext_resource type="PackedScene" uid="uid://c7b17g8a14p81" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.tscn" id="14_j7pwk"]
+[ext_resource type="Script" uid="uid://bpwnfekla8der" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.gd" id="15_ldxei"]
+[ext_resource type="Resource" uid="uid://ch41uafmqew71" path="res://Assets/Dialogue/Dialogue_Manager/Real_World_Key_Dialogues.dialogue" id="16_ldxei"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cu0he"]
 load_path = "res://.godot/imported/room_untidy_overlay.png-d4dbf390b37b3f2f494a6d0a9b1b031e.ctex"
@@ -29,6 +38,39 @@ size = Vector2(52, 25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1axj"]
 size = Vector2(58, 99)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_okmly"]
+shader = ExtResource("11_okmly")
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Line_Width = 0.09
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 1.8
+shader_parameter/Speed = 0.7
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 1.0
+shader_parameter/surface = ExtResource("10_id0qg")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_id0qg"]
+radius = 15.0333
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_co1fq"]
+shader = ExtResource("11_okmly")
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Line_Width = 0.09
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 1.8
+shader_parameter/Speed = 0.5
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_okmly"]
+radius = 8.01561
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cu0he"]
 shader = ExtResource("11_txxbo")
 shader_parameter/mode = 1
@@ -40,7 +82,7 @@ shader_parameter/opacity = 0.822
 
 [node name="Real_World_untidy" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_7ugby")
+script = ExtResource("1_okmly")
 
 [node name="stage" type="CanvasLayer" parent="."]
 
@@ -53,6 +95,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="BG" type="Control" parent="stage"]
+z_index = -1
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -64,6 +107,7 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 
 [node name="BG" type="TextureRect" parent="stage/BG"]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -132,7 +176,7 @@ offset_bottom = -250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Morgan_Tidy" parent="stage/Room_entitites/Room_mask/Control" instance=ExtResource("5_j7pwk")]
+[node name="Morgan_Tidy2" parent="stage/Room_entitites/Room_mask/Control" instance=ExtResource("4_co1fq")]
 z_index = 0
 scale = Vector2(0.552, 0.552)
 
@@ -195,6 +239,45 @@ offset = Vector2(0, -17)
 position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_k1axj")
 
+[node name="photo_frame" type="Node2D" parent="stage/Room_entitites/Room_mask/Control"]
+z_index = 1
+position = Vector2(213, -3)
+
+[node name="Sprite2D" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control/photo_frame"]
+scale = Vector2(2, 2)
+texture = ExtResource("10_id0qg")
+
+[node name="shaded_version" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control/photo_frame"]
+visible = false
+material = SubResource("ShaderMaterial_okmly")
+scale = Vector2(2, 2)
+texture = ExtResource("10_id0qg")
+
+[node name="actionable" parent="stage/Room_entitites/Room_mask/Control/photo_frame" node_paths=PackedStringArray("dialogue_box_manager") instance=ExtResource("7_id0qg")]
+dialogue_title = "PhotoInteraction"
+dialogue_box_manager = NodePath("../../../../../../DialogueBoxManager")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/photo_frame/actionable"]
+shape = SubResource("CircleShape2D_id0qg")
+
+[node name="Book" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control"]
+z_index = 1
+position = Vector2(213, 56)
+scale = Vector2(2, 2)
+texture = ExtResource("11_qjmvg")
+
+[node name="shaded_version" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control/Book"]
+material = SubResource("ShaderMaterial_co1fq")
+texture = ExtResource("11_qjmvg")
+
+[node name="actionable" parent="stage/Room_entitites/Room_mask/Control/Book" node_paths=PackedStringArray("dialogue_box_manager") instance=ExtResource("7_id0qg")]
+dialogue_title = "BookInteraction"
+dialogue_box_manager = NodePath("../../../../../../DialogueBoxManager")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/Book/actionable"]
+shape = SubResource("CircleShape2D_okmly")
+debug_color = Color(0.690911, 0.361036, 0.867103, 0.42)
+
 [node name="Night_Shader" type="CanvasLayer" parent="."]
 layer = 100
 
@@ -214,3 +297,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DialogueSprite" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="DialogueSpriteManager" parent="DialogueSprite" node_paths=PackedStringArray("character_sprite", "dialogue_overlay") instance=ExtResource("11_d4jb4")]
+unique_name_in_owner = true
+character_sprite = NodePath("Sprite2D")
+dialogue_overlay = NodePath("Control")
+fade_speed = 0.5
+
+[node name="Control" type="Control" parent="DialogueSprite/DialogueSpriteManager"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -84.0
+offset_right = -6.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DialogueSprite/DialogueSpriteManager/Control"]
+layout_mode = 0
+offset_top = 81.0
+offset_right = 4000.0
+offset_bottom = 2322.0
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("12_8gtjo")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="DialogueSprite/DialogueSpriteManager"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_j7pwk")
+
+[node name="DialogueBoxManager" parent="." node_paths=PackedStringArray("RootScene") instance=ExtResource("14_j7pwk")]
+unique_name_in_owner = true
+script = ExtResource("15_ldxei")
+RootScene = NodePath("..")
+Dialogue_Resource = ExtResource("16_ldxei")

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ch41uafmqew71"
+path="res://.godot/imported/Real_World_Key_Dialogues.dialogue-d96e7892d435ddbd16695474765f6fce.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogue/Dialogue_Manager/Real_World_Key_Dialogues.dialogue"
+dest_files=["res://.godot/imported/Real_World_Key_Dialogues.dialogue-d96e7892d435ddbd16695474765f6fce.tres"]
+
+[params]
+
+defaults=true

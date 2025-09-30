@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3ms75y6ihv5w"]
+[gd_scene load_steps=29 format=3 uid="uid://c3ms75y6ihv5w"]
 
 [ext_resource type="Texture2D" uid="uid://bnne6agtdhj7c" path="res://Assets/Real_World/room_irl_pix.png" id="1_rli47"]
 [ext_resource type="Script" uid="uid://bh3lv5uom1wj0" path="res://Scenes/Real_World/real_world_tidy.gd" id="1_tlqwr"]
@@ -10,7 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://blfkv2h6fkxnn" path="res://Assets/Real_World/chair_w.png" id="7_y4456"]
 [ext_resource type="Texture2D" uid="uid://c4ur3ttog4c3x" path="res://Assets/Real_World/lamp_warm.png" id="8_lm5xm"]
 [ext_resource type="Texture2D" uid="uid://cti5uu356is3e" path="res://Assets/Real_World/mini_table.png" id="9_tarai"]
+[ext_resource type="Texture2D" uid="uid://c2de836k1c7f6" path="res://Assets/Real_World/Morgan_photoframe.png" id="10_5llra"]
+[ext_resource type="PackedScene" uid="uid://d3sfg075o3bew" path="res://Scenes/Real_World/non_dialogue_action.tscn" id="10_63hwx"]
 [ext_resource type="Texture2D" uid="uid://dkd0rsf2l3t1x" path="res://Assets/Real_World/table.png" id="10_kx161"]
+[ext_resource type="PackedScene" uid="uid://dgjlqge7kckck" path="res://Scenes/Real_World/Dialogue/dialogue_sprite_manager.tscn" id="11_kixbj"]
+[ext_resource type="Texture2D" uid="uid://ci8uj8ug5202x" path="res://Assets/Dialogue/dialogueoverlay_gold.png" id="12_63hwx"]
+[ext_resource type="Texture2D" uid="uid://npqgmwneu2f1" path="res://Assets/Real_World/photogroup.png" id="12_lf6ra"]
+[ext_resource type="Texture2D" uid="uid://nfasgb1aiw7j" path="res://Assets/Real_World/irl_tidy_final.png" id="13_kixbj"]
+[ext_resource type="PackedScene" uid="uid://c7b17g8a14p81" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.tscn" id="14_5llra"]
+[ext_resource type="Script" uid="uid://bpwnfekla8der" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.gd" id="15_lf6ra"]
+[ext_resource type="Resource" uid="uid://ch41uafmqew71" path="res://Assets/Dialogue/Dialogue_Manager/Real_World_Key_Dialogues.dialogue" id="16_unuko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0yb8"]
 size = Vector2(22, 16)
@@ -27,6 +36,12 @@ size = Vector2(52, 25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1axj"]
 size = Vector2(58, 99)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5llra"]
+radius = 15.8114
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3twv7"]
+radius = 10.5
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j0yb8"]
 shader = ExtResource("4_8moll")
 shader_parameter/mode = 1
@@ -36,7 +51,7 @@ shader_parameter/color2 = Color(0.826586, 0.79165, 0.919056, 1)
 shader_parameter/direction = Vector2(1, 1)
 shader_parameter/opacity = 0.871
 
-[node name="Real_World_untidy" type="Node2D"]
+[node name="Real_World_tidy" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_tlqwr")
 
@@ -192,9 +207,43 @@ offset = Vector2(0, -17)
 position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_k1axj")
 
+[node name="Book" type="Node2D" parent="stage/Room_entitites/Room_mask/Control"]
+
+[node name="actionable" parent="stage/Room_entitites/Room_mask/Control/Book" node_paths=PackedStringArray("dialogue_box_manager") instance=ExtResource("5_5lhsx")]
+dialogue_title = "BackInRealWorld"
+dialogue_box_manager = NodePath("../../../../../../DialogueBoxManager")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/Book/actionable"]
+z_index = 1
+position = Vector2(218, 4)
+shape = SubResource("CircleShape2D_5llra")
+debug_color = Color(0.656387, 0.36393, 0.92404, 0.42)
+
+[node name="photoframe" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control"]
+z_index = 100
+position = Vector2(217, 56)
+scale = Vector2(2, 2)
+texture = ExtResource("10_5llra")
+
+[node name="Non-Dialogue_Action" parent="stage/Room_entitites/Room_mask/Control/photoframe" node_paths=PackedStringArray("item") instance=ExtResource("10_63hwx")]
+z_index = 100
+collision_layer = 16
+item = NodePath("../Group_photo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/photoframe/Non-Dialogue_Action"]
+z_index = 1
+position = Vector2(-5, 3)
+shape = SubResource("CircleShape2D_3twv7")
+debug_color = Color(0.602835, 0.411913, 0.901782, 0.42)
+
+[node name="Group_photo" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control/photoframe"]
+visible = false
+position = Vector2(-116, -34)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_lf6ra")
+
 [node name="Light_switch_shader" type="CanvasLayer" parent="."]
 layer = 100
-visible = false
 
 [node name="Control" type="Control" parent="Light_switch_shader"]
 layout_mode = 3
@@ -212,3 +261,43 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DialogueSprite" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="DialogueSpriteManager" parent="DialogueSprite" node_paths=PackedStringArray("character_sprite", "dialogue_overlay") instance=ExtResource("11_kixbj")]
+unique_name_in_owner = true
+character_sprite = NodePath("Sprite2D")
+dialogue_overlay = NodePath("Control")
+fade_speed = 0.5
+
+[node name="Control" type="Control" parent="DialogueSprite/DialogueSpriteManager"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -84.0
+offset_right = -6.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DialogueSprite/DialogueSpriteManager/Control"]
+layout_mode = 0
+offset_top = 81.0
+offset_right = 4000.0
+offset_bottom = 2322.0
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("12_63hwx")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="DialogueSprite/DialogueSpriteManager"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_kixbj")
+
+[node name="DialogueBoxManager" parent="." node_paths=PackedStringArray("RootScene") instance=ExtResource("14_5llra")]
+unique_name_in_owner = true
+script = ExtResource("15_lf6ra")
+RootScene = NodePath("..")
+Dialogue_Resource = ExtResource("16_unuko")

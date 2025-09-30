@@ -1,10 +1,10 @@
 extends Area2D
 
-@export var dialogue_resource : DialogueResource 
-@export var dialogue_start: String = "start"
+@export var dialogue_title: String = "start"
+@export var dialogue_box_manager: DialogueBoxManager
 
-signal light_switch_pressed
 
 func action():
-	# show the dialogue
-	light_switch_pressed.emit()
+	if !dialogue_title or !dialogue_box_manager:
+		printerr("actionable exports empty!")
+	dialogue_box_manager.add_dialogue_box(dialogue_title)

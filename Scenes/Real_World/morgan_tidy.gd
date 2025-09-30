@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-@onready var morgan_animations: AnimatedSprite2D = %Morgan_Animations
 @onready var actionable_finder: Area2D = $Direction/Actionable_Finder
 
 # real world Morgan spritesheet png is still a mess
@@ -34,10 +33,6 @@ func _physics_process(delta: float) -> void:
 		animation_direction = "down"
 	elif last_facing_direction.y < 0:
 		animation_direction = "up"
-	
-#	if velocity:
-#		animation_player.play("walk" + animation_direction)
-
 
 
 func _unhandled_input(_event: InputEvent) -> void:
@@ -46,5 +41,3 @@ func _unhandled_input(_event: InputEvent) -> void:
 		
 		if actionables.size() > 0:
 			actionables[0].action()
-			print("light_switch_pressed")
-		print("enter_pressed")

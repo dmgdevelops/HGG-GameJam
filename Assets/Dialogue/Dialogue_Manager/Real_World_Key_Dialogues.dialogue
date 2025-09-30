@@ -1,0 +1,38 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+# scene variables are from root scene by default
+Nathan: {{test}}
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan: You picked the second one.
+- Start again => start
+- End the conversation => END
+Nathan: For more information see the online documentation.
+=> END
+
+# Real World part 1
+~ BookInteraction
+ : [next=0.5]
+do! DialogueSprite.fade_in()
+Morgan: "Ah..the Once and Future King.. I have to return it next week."
+Morgan: "I'm not sure I'll finish it by then.. maybe I can renew it?"
+do DialogueSprite.fade_out()
+=> END!
+
+~ PhotoInteraction
+ : [next=0.5]
+do! DialogueSprite.fade_in()
+Morgan: "There's so much to do this week.. I need to clean the house, organize the trip.."
+Morgan: "I'll work on it after I nap...maybe.."
+do DialogueSprite.fade_out()
+=> END
+
+# Real World part 2 -- back from Dream World
+~ BackInRealWorld
+ : [next=0.5]
+do! DialogueSprite.fade_in()
+Morgan: "Guess I can finally return this book after our trip!"
+do DialogueSprite.fade_out()
+=> END

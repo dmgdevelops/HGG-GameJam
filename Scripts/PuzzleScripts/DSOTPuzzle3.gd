@@ -3,7 +3,7 @@ extends Node
 @onready var ground = $"../Ground"
 @onready var steppableTiles = $SteppableTiles
 @onready var outlineTiles = $Outlines
-@onready var morgan = $"../Morgan"
+var morgan : Player
 
 @onready var unsolvedBoundaries = $Outlines/StaticBody2D/UnsolvedBoundaries
 @onready var solvedBoundaries = $Outlines/StaticBody2D/SolvedBoundaries
@@ -33,6 +33,7 @@ var current_tile_coordinates
 var last_tile_coordinates
 
 func _ready():
+	morgan = PlayerManager.player
 	unsolvedBoundaries.disabled = false
 	solvedBoundaries.disabled = true
 

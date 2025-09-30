@@ -14,7 +14,7 @@ func ready():
 	pass
 	
 func init() -> void:
-	boss.attack_detection.player_entered.connect( DoAttack )
+	#boss.attack_detection.player_entered.connect( DoAttack )
 	pass
 	
 func Enter() -> void:

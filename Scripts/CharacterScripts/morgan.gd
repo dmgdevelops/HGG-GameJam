@@ -1,28 +1,33 @@
 class_name Player extends CharacterBody2D
 
-@onready var Hurtbox = $Interactions/Hurtbox
+@onready var hurtbox = $Interactions/Hurtbox
 
 @onready var Walkbox = $Walkbox
 
 @onready var PushBox = $PushBox/PushBoxCollisionShape
 @onready var state_machine: PlayerStateMachine = $StateMachine
+@onready var hitbox: Hitbox = $Hitbox
+@onready var effect_animator: AnimationPlayer = $EffectAnimator
+
 
 signal DirectionChanged( int_direction : Vector2 )
+signal PlayerDamaged ( damage: int )
 
 var speed = 100
 
-var direction : Vector2 = Vector2.ZERO
+var invul : bool = false
+var hp : int = 6
+var max_hp : int = 6
 
+var direction : Vector2 = Vector2.ZERO
 var last_direction = Vector2.ZERO
+var box_push_direction = Vector2.ZERO
+var slide_direction=Vector2.ZERO
 
 var animated_sprite
 
-var box_push_direction = Vector2.ZERO
 
 var is_sliding = false
-
-var slide_direction=Vector2.ZERO
-
 var icetiles
 var dirttiles
 
@@ -30,8 +35,11 @@ func _ready():
 	animated_sprite = $AnimatedSprite2D
 	PlayerManager.player = self
 	state_machine.Initialize(self)
+	hitbox.Damaged.connect( _take_damage )
+	update_hp(99)
 	icetiles = get_node_or_null("%IceTiles")
 	dirttiles = get_node_or_null("%DirtTiles")
+	pass
 
 func _physics_process(delta):
 	if is_sliding:
@@ -104,4 +112,28 @@ func AnimDirection() -> String:
 	else:
 		return "right"
 		
+func _take_damage( _hurtbox : Hurtbox ) -> void:
+	if invul == true:
+		return
+	update_hp( -_hurtbox.damage )
+	if hp > 0:
+		PlayerDamaged.emit( _hurtbox )
+	else:
+		PlayerDamaged.emit( _hurtbox )
+		update_hp(99)
+	pass
+
+func update_hp ( delta : int ) -> void:
+	hp = clampi( hp + delta, 0, max_hp)
+	PlayerHud.update_hp( hp, max_hp )
+	pass
 	
+func make_invulnerable ( _duration : float ) -> void:
+	invul = true
+	hitbox.monitoring = false
+	
+	await get_tree().create_timer(_duration).timeout
+	
+	invul = false
+	hitbox.monitoring = true
+	pass

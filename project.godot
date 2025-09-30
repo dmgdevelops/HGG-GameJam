@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Global="*res://Scripts/global.gd"
+PlayerHud="*res://Scenes/Characters/player_hud.tscn"
 PlayerManager="*res://Scripts/Generics/global_player_manager.gd"
 
 [dialogic]
@@ -36,6 +37,10 @@ glossary/default_case_sensitive=true
 layout/style_list=["res://Assets/Dialogue/VN_Style.tres"]
 layout/default_style="res://Assets/Dialogue/VN_Style.tres"
 variables={}
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
@@ -71,6 +76,7 @@ attack={
 2d_physics/layer_2="MorganPushBox"
 2d_physics/layer_3="PushableItems"
 2d_physics/layer_4="PlayerHurt"
+2d_physics/layer_5="Actionable"
 2d_physics/layer_9="Enemy"
 
 [rendering]

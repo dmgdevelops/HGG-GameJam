@@ -4816,9 +4816,6 @@ position = Vector2(271, 176)
 [node name="Bug3" parent="Bugs" instance=ExtResource("5_fuwyg")]
 position = Vector2(310, 90)
 
-[node name="PlayerSpawn" parent="Bugs" instance=ExtResource("8_wey5n")]
-position = Vector2(373, 471)
-
 [node name="Boxes1" type="Node2D" parent="."]
 z_index = 1
 
@@ -4957,6 +4954,9 @@ position = Vector2(456, 42)
 
 [node name="ResetButton" parent="." instance=ExtResource("10_ubrj5")]
 position = Vector2(323, 336)
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("8_wey5n")]
+position = Vector2(373, 471)
 
 [connection signal="reset_pressed" from="ResetButton" to="." method="_on_reset_button_reset_pressed"]
 

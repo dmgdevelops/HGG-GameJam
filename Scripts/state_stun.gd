@@ -24,7 +24,7 @@ func Enter() -> void:
 	direction = player.global_position.direction_to( hurtbox.global_position)
 	player.velocity = direction * -knockback_speed
 	player.SetDirection()
-	player.UpdateAnimation("idle")
+	player.UpdateAnimation("stun")
 	
 	player.make_invulnerable( invul_duration )
 	player.effect_animator.play("Stun")
@@ -32,7 +32,7 @@ func Enter() -> void:
 	
 func Exit() -> void:
 	next_state = null
-	player.animated_sprite.animation_finished.disconnect (_animation_finished)
+	player.animated_sprite.animation_finished.disconnect(_animation_finished)
 	pass
 	
 func Process( _delta: float) -> State:
@@ -50,6 +50,6 @@ func _player_damaged ( _hurtbox : Hurtbox ) -> void:
 	state_machine.ChangeState(self)
 	pass
 
-func _animation_finished ( _a : String ) -> void:
+func _animation_finished () -> void:
 	next_state = idle
 	pass

@@ -1,0 +1,6 @@
+join DarkMorgan center
+Morgan: Who is that?
+Morgan: She looks like me... but different? Who are you?
+DarkMorgan: ...
+[signal arg="sword"]
+[end_timeline]

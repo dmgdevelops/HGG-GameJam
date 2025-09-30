@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cnv3upy4tcqn7"]
+[gd_scene load_steps=35 format=3 uid="uid://cnv3upy4tcqn7"]
 
 [ext_resource type="Script" uid="uid://cvk4flqvx5g24" path="res://Scripts/EnemyScripts/boss.gd" id="1_qfc36"]
 [ext_resource type="Texture2D" uid="uid://cp5aj1q5v3t77" path="res://Assets/Evil Morgan/Morganevil_shadow4.png" id="2_7ngla"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dhq2w33fv6e8e" path="res://Scripts/EnemyScripts/BossStateMachine.gd" id="6_hkfsw"]
 [ext_resource type="Script" uid="uid://cv4vhrt1c06oa" path="res://Scripts/EnemyScripts/Boss_State_Idle.gd" id="7_7ngla"]
 [ext_resource type="Script" uid="uid://e2a30erdjqrn" path="res://Scripts/EnemyScripts/Boss_State_Chase.gd" id="8_r5dhr"]
+[ext_resource type="Script" uid="uid://dvvqulajbluns" path="res://Scripts/EnemyScripts/Boss_State_Attack.gd" id="9_8m5h7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dkd0i"]
 atlas = ExtResource("2_7ngla")
@@ -193,6 +194,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_r5dhr"]
 radius = 800.444
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8m5h7"]
+radius = 184.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_oylyj"]
 radius = 91.022
 
@@ -216,6 +220,12 @@ autoplay = "idle_down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 shape = SubResource("CircleShape2D_r5dhr")
 debug_color = Color(0.508761, 0.576646, 0.132395, 0.666667)
+
+[node name="AttackDetection" parent="." instance=ExtResource("3_r5dhr")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetection"]
+shape = SubResource("CircleShape2D_8m5h7")
+debug_color = Color(0.270588, 0.843137, 0, 0.419608)
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 256
@@ -258,12 +268,13 @@ script = ExtResource("6_hkfsw")
 script = ExtResource("7_7ngla")
 after_idle_state = NodePath("../Chase")
 
-[node name="Chase" type="Node" parent="BossStateMachine" node_paths=PackedStringArray("detection_area", "attack_area", "next_state")]
+[node name="Chase" type="Node" parent="BossStateMachine" node_paths=PackedStringArray("detection_area", "damage_area")]
 script = ExtResource("8_r5dhr")
 detection_area = NodePath("../../PlayerDetection")
-attack_area = NodePath("../../Hurtbox")
-next_state = NodePath("../Idle")
+damage_area = NodePath("../../Hurtbox")
 
-[node name="Attack" type="Node" parent="BossStateMachine"]
+[node name="Attack" type="Node" parent="BossStateMachine" node_paths=PackedStringArray("hurtbox")]
+script = ExtResource("9_8m5h7")
+hurtbox = NodePath("../../AttackHurtbox")
 
 [node name="Destroy" type="Node" parent="BossStateMachine"]

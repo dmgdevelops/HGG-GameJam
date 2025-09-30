@@ -4954,13 +4954,13 @@ position = Vector2(277, 261)
 [node name="PlayerDetection" parent="DarkMorgan_boss" index="1"]
 visible = false
 
-[node name="Hitbox" parent="DarkMorgan_boss" index="2"]
+[node name="Hitbox" parent="DarkMorgan_boss" index="3"]
 visible = false
 
-[node name="Hurtbox" parent="DarkMorgan_boss" index="3"]
+[node name="Hurtbox" parent="DarkMorgan_boss" index="4"]
 visible = false
 
-[node name="AttackHurtbox" parent="DarkMorgan_boss" index="4"]
+[node name="AttackHurtbox" parent="DarkMorgan_boss" index="5"]
 visible = false
 
 [node name="SmallDoor" parent="." instance=ExtResource("8_psv02")]

@@ -1,0 +1,6 @@
+join Morgan center
+Morgan: Maybe I can open this one?
+[signal arg="open"]
+[wait time="2.0"]
+Morgan: Only way through is forward I guess?
+[end_timeline]

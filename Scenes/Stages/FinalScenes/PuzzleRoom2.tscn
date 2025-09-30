@@ -1,6 +1,6 @@
-[gd_scene load_steps=27 format=4 uid="uid://dujmfrnhd6wgr"]
+[gd_scene load_steps=29 format=4 uid="uid://dujmfrnhd6wgr"]
 
-[ext_resource type="Script" uid="uid://cs4txyffd70lo" path="res://Scripts/StageScripts/Puzzle2RoomManager.gd" id="1_7w64l"]
+[ext_resource type="Script" uid="uid://cs4txyffd70lo" path="res://Scripts/StageScripts/PuzzleRoom2Manager.gd" id="1_7w64l"]
 [ext_resource type="Texture2D" uid="uid://caqw32masggxr" path="res://Assets/forestgrass1.png" id="1_eiy8x"]
 [ext_resource type="PackedScene" uid="uid://dft3i4k76iwx7" path="res://Scenes/Items/small_door.tscn" id="2_ym8y7"]
 [ext_resource type="Script" uid="uid://t8jcjys0sbfu" path="res://Scripts/PuzzleScripts/IceSlidePuzzles.gd" id="3_hpom7"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://fqoyb78vd2a8" path="res://Assets/Picture Pieces/piece4.png" id="9_7wjid"]
 [ext_resource type="Script" uid="uid://dal6esn0k08a8" path="res://Scripts/ItemScripts/PicturePiece.gd" id="9_bbflx"]
 [ext_resource type="PackedScene" uid="uid://cp3othgqimikm" path="res://Scenes/Characters/Morgan.tscn" id="10_2o2a1"]
+[ext_resource type="Texture2D" uid="uid://dsnkprhinm1di" path="res://Assets/puzzle_room2overlay3.png" id="15_1r555"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ndvx"]
 texture = ExtResource("1_eiy8x")
@@ -5923,6 +5924,8 @@ sources/0 = SubResource("TileSetAtlasSource_8h1tm")
 sources/1 = SubResource("TileSetAtlasSource_ffyj2")
 sources/2 = SubResource("TileSetAtlasSource_1r555")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1r555"]
+
 [node name="PuzzleRoom2" type="Node2D"]
 script = ExtResource("1_7w64l")
 
@@ -5999,7 +6002,7 @@ texture = ExtResource("9_7wjid")
 
 [node name="Morgan" parent="." instance=ExtResource("10_2o2a1")]
 z_index = 3
-position = Vector2(392, 413)
+position = Vector2(395, 439)
 
 [node name="Camera2D" type="Camera2D" parent="Morgan"]
 zoom = Vector2(3, 3)
@@ -6008,6 +6011,26 @@ limit_top = 0
 limit_right = 816
 limit_bottom = 496
 editor_draw_limits = true
+
+[node name="Overlay" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(365, 280)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("15_1r555")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Overlay"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Overlay/StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(-160.833, 76.6667, -194.167, 77.5, -201.667, 100.833, -190.833, 121.667, -179.167, 149.167, -178.333, 160.833, -225.833, 160, -245.833, 134.167, -233.333, 112.5, -233.333, 93.3333, -252.5, 79.1667, -250, 63.3333, -240, 48.3333, -241.667, 25.8333, -284.167, 25.8333, -283.333, -96.6667, -241.667, -95.8333, -225, -128.333, -198.333, -133.333, -177.5, -121.667, -153.333, -110.833, -140.833, -106.667, -140.833, -88.3333, -103.333, -88.3333, -103.333, -151.667, -293.333, -155.833, -288.333, 172.5, -159.167, 168.333)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Overlay/StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(-98.3333, 130, -98.3333, 173.333, -40.8333, 174.167, -30.8333, 155.833, 2.5, 155, 12.5, 177.5, 22.5, 171.667, 90, 171.667, 115.833, 164.167, 116.667, 151.667, 130.833, 153.333, 150.833, 153.333, 152.5, 126.667, 165.833, 125, 165.833, 113.333, 194.167, 113.333, 191.667, 184.167, -110.833, 184.167, -109.167, 129.167)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Overlay/StaticBody2D"]
+position = Vector2(-195, 31.6667)
+shape = SubResource("RectangleShape2D_1r555")
 
 [editable path="PicturePieces/PicturePiece"]
 [editable path="PicturePieces/PicturePiece2"]

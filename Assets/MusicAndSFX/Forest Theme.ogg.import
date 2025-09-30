@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://lmi5o1cuerih"
+path="res://.godot/imported/Forest Theme.ogg-7a7cad34a59622eb5742ed48141bbc48.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/MusicAndSFX/Forest Theme.ogg"
+dest_files=["res://.godot/imported/Forest Theme.ogg-7a7cad34a59622eb5742ed48141bbc48.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

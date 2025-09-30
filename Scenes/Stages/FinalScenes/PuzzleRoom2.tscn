@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dujmfrnhd6wgr"]
+[gd_scene load_steps=31 format=4 uid="uid://dujmfrnhd6wgr"]
 
 [ext_resource type="Script" uid="uid://cs4txyffd70lo" path="res://Scripts/StageScripts/PuzzleRoom2Manager.gd" id="1_7w64l"]
 [ext_resource type="Texture2D" uid="uid://caqw32masggxr" path="res://Assets/forestgrass1.png" id="1_eiy8x"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://dal6esn0k08a8" path="res://Scripts/ItemScripts/PicturePiece.gd" id="9_bbflx"]
 [ext_resource type="Texture2D" uid="uid://dsnkprhinm1di" path="res://Assets/puzzle_room2overlay3.png" id="15_1r555"]
 [ext_resource type="PackedScene" uid="uid://dbbo6lfhqw65b" path="res://Scenes/Generics/player_spawn.tscn" id="16_fji2q"]
+[ext_resource type="AudioStream" uid="uid://lmi5o1cuerih" path="res://Assets/MusicAndSFX/Forest Theme.ogg" id="17_fji2q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ndvx"]
 texture = ExtResource("1_eiy8x")
@@ -6024,6 +6025,11 @@ shape = SubResource("RectangleShape2D_1r555")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("16_fji2q")]
 position = Vector2(393, 445)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_fji2q")
+autoplay = true
+parameters/looping = true
 
 [editable path="PicturePieces/PicturePiece"]
 [editable path="PicturePieces/PicturePiece2"]

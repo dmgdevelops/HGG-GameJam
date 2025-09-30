@@ -11,15 +11,20 @@ var cardinal_direction : Vector2 = Vector2.DOWN
 var direction : Vector2 = Vector2.ZERO
 var player : Player
 var invulnerable : bool = false
+var _can_attack_player : bool = false
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox : Hitbox = $Hitbox
 @onready var state_machine : BossStateMachine = $BossStateMachine
+@onready var attack_detection: PlayerDetection = $AttackDetection
+
 
 func _ready():
 	state_machine.initialize(self)
 	player = PlayerManager.player
 	hitbox.Damaged.connect(_take_damage)
+	attack_detection.player_entered.connect( _on_attack_enter )
+	attack_detection.player_exited.connect( _on_attack_exit )
 	pass
 	
 func _process( _delta):
@@ -64,3 +69,13 @@ func anim_direction() -> String:
 		return "up"
 	else:
 		return "side"
+
+func _on_attack_enter() -> void:
+	_can_attack_player = true
+	print("in range")
+	pass
+	
+func _on_attack_exit() -> void:
+	_can_attack_player = false
+	print("left range")
+	pass

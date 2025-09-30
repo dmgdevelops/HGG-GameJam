@@ -1,8 +1,8 @@
 extends Node2D
 
 @onready var ground = $"../Ground"
-@onready var _icetiles = $IceTiles
-@onready var _dirttiles = $IceTiles/DirtTiles
+@onready var _icetiles = %IceTiles
+@onready var _dirttiles = %DirtTiles
 var morgan : Player 
 
 #ID 0 Atlas(1,22) (IceTiles)

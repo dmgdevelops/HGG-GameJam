@@ -1,14 +1,17 @@
 class_name BossStateChase extends BossState
 
-@export var anim_name : String = "float"
+var anim_name : String = "float"
 @export var chase_speed : float = 40.0
 @export var turn_rate : float = 0.25
 
 @export_category("AI")
 @export var detection_area : PlayerDetection
-@export var attack_area : Hurtbox
+@export var damage_area : Hurtbox
 @export var state_aggro_duration: float = 0.5
-@export var next_state : BossState
+var next_state : BossState
+
+@onready var idle: BossStateIdle = $"../Idle"
+
 
 var _timer : float = 0.0
 var _direction : Vector2
@@ -21,17 +24,17 @@ func init() -> void:
 	pass
 
 func enter() -> void:
+	print("state set chase")
 	_timer = state_aggro_duration
 	boss.update_animation(anim_name)
-	if attack_area:
-		attack_area.monitoring = true
-	#boss.velocity = _direction * wander_speed
-	#boss.set_direction(_direction)
+	if damage_area:
+		damage_area.monitoring = true
 	pass
 
 func exit() -> void:
-	if attack_area:
-		attack_area.monitoring = false
+	_timer = 0
+	if damage_area:
+		damage_area.monitoring = false
 	_can_see_player = false
 	pass
 
@@ -42,7 +45,10 @@ func process(_delta : float) -> BossState:
 	if boss.set_direction( _direction ):
 		boss.update_animation( anim_name )
 	
+	
+	
 	if _can_see_player == false:
+		next_state = idle
 		_timer -= _delta
 		if _timer <= 0:
 			return next_state

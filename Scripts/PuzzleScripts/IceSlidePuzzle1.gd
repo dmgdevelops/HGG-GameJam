@@ -1,9 +1,9 @@
 extends Node2D
 
 @onready var ground = $"../Ground"
-@onready var icetiles = $IceTiles
-@onready var dirttiles = $IceTiles/DirtTiles
-@onready var morgan = $"../Morgan"
+@onready var _icetiles = $IceTiles
+@onready var _dirttiles = $IceTiles/DirtTiles
+var morgan : Player 
 
 #ID 0 Atlas(1,22) (IceTiles)
 #ID 0 Atlas(1,18) (DirtTiles)
@@ -13,10 +13,16 @@ var current_tile_coordinates
 var last_tile_coordinates
 
 func _ready():
+	morgan = PlayerManager.player
+	morgan.icetiles = _icetiles
+	morgan.dirttiles = _dirttiles
 	pass
 
 func _physics_process(delta):
 	#check_tile_under_player()
+	if PlayerManager.player_spawned == false:
+		return
+
 	if morgan.is_sliding:
 		return
 	
@@ -26,9 +32,9 @@ func _physics_process(delta):
 		return
 	
 	var local_position_morgan = ground.to_local(morgan.Walkbox.global_position)
-	current_tile_coordinates = icetiles.local_to_map(local_position_morgan)
-	var tile_id_ice = icetiles.get_cell_source_id(current_tile_coordinates)
-	var tile_id_dirt= dirttiles.get_cell_source_id(current_tile_coordinates)
+	current_tile_coordinates = _icetiles.local_to_map(local_position_morgan)
+	var tile_id_ice = _icetiles.get_cell_source_id(current_tile_coordinates)
+	var tile_id_dirt= _dirttiles.get_cell_source_id(current_tile_coordinates)
 	
 	if tile_id_dirt == TILE_ID:
 		morgan.velocity = direction * morgan.speed

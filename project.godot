@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 Global="*res://Scripts/global.gd"
 PlayerHud="*res://Scenes/Characters/player_hud.tscn"
+LevelManager="*res://Scripts/Generics/global_level_manager.gd"
 PlayerManager="*res://Scripts/Generics/global_player_manager.gd"
 
 [dialogic]

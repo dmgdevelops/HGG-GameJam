@@ -22,6 +22,7 @@ var max_hp : int = 6
 
 var direction : Vector2 = Vector2.ZERO
 var last_direction = Vector2.ZERO
+const DIR_4 = [ Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT, Vector2.UP ]
 var box_push_direction = Vector2.ZERO
 var slide_direction=Vector2.ZERO
 
@@ -46,6 +47,7 @@ func _physics_process(delta):
 	else:
 		direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+		direction = direction.normalized()
 		box_push_direction = direction
 		
 		move_and_slide()
@@ -84,14 +86,12 @@ func stop_sliding():
 	velocity = Vector2.ZERO
 
 func SetDirection() -> bool:
-	var new_dir : Vector2 = last_direction
+	
 	if direction == Vector2.ZERO:
 		return false
 	
-	if direction.y == 0:
-		new_dir = Vector2.LEFT if direction.x < 0 else Vector2.RIGHT
-	elif direction.x == 0:
-		new_dir = Vector2.UP if direction.y <0 else Vector2.DOWN
+	var direction_id : int = int( round( ( direction + last_direction * 0.1 ).angle() / TAU * DIR_4.size() ) )
+	var new_dir = DIR_4 [ direction_id ]
 		
 	if new_dir == last_direction:
 		return false

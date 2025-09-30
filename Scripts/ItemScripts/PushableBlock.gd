@@ -11,7 +11,15 @@ var move_speed = 10
 
 var is_sliding = false
 
+var original_position: Vector2
+
 func _ready():
+	original_position = global_position
+	pass
+
+func reset_position():
+	global_position = original_position
+	is_sliding = false
 	pass
 
 func _physics_process(delta):
@@ -22,7 +30,11 @@ func _physics_process(delta):
 			move_velocity = Vector2.ZERO
 			is_sliding = false
 		else:
-			move_and_collide(move_velocity * delta)
+			var pot_collision = move_and_collide(move_velocity * delta, true, .08, false)
+			if pot_collision == null:
+				move_and_collide(move_velocity * delta)
+			else:
+				is_sliding = false
 	
 func try_to_push(direction: Vector2):
 	if is_sliding:

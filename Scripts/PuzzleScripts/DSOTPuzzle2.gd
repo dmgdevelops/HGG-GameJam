@@ -12,14 +12,14 @@ var morgan : Player
 var cracked_tiles := {}
 
 #max number of crackable tiles (will be different for each puzzle)
-var numCrackableTiles = 32
+var numCrackableTiles = 46
 
 #gap tiles for unreachable area (will be different for each puzzle)
-var leftTile = Vector2i(12,16)
-var rightTile = Vector2i(13,16)
+var leftTile = Vector2i(8,10)
+var rightTile = Vector2i(9,10)
 
 #if morgan fails a puzzle, where she respawns (will be different for each puzzle)
-var morgan_respawn_tile = Vector2i(208,392)
+var morgan_respawn_tile = Vector2i(192,104)
 
 var puzzleFinished = false
 

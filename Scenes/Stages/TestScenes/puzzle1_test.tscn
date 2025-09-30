@@ -163,7 +163,7 @@ texture = ExtResource("1_nor5h")
 [sub_resource type="TileSet" id="TileSet_c24om"]
 sources/0 = SubResource("TileSetAtlasSource_wh5yr")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j7de1"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o7f0"]
 texture = ExtResource("1_nor5h")
 0:0/0 = 0
 1:0/0 = 0
@@ -319,7 +319,7 @@ texture = ExtResource("1_nor5h")
 11:12/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_8ueq5"]
-sources/0 = SubResource("TileSetAtlasSource_j7de1")
+sources/0 = SubResource("TileSetAtlasSource_4o7f0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1efkr"]
 size = Vector2(32, 16)
@@ -327,7 +327,7 @@ size = Vector2(32, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j37cf"]
 size = Vector2(32, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3i6nd"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xijfx"]
 texture = ExtResource("1_nor5h")
 0:0/0 = 0
 1:0/0 = 0
@@ -482,7 +482,7 @@ texture = ExtResource("1_nor5h")
 10:12/0 = 0
 11:12/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c24om"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhiev"]
 texture = ExtResource("1_nor5h")
 0:0/0 = 0
 1:0/0 = 0
@@ -638,8 +638,8 @@ texture = ExtResource("1_nor5h")
 11:12/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_3gfdn"]
-sources/0 = SubResource("TileSetAtlasSource_3i6nd")
-sources/1 = SubResource("TileSetAtlasSource_c24om")
+sources/0 = SubResource("TileSetAtlasSource_xijfx")
+sources/1 = SubResource("TileSetAtlasSource_jhiev")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3i041"]
 texture = ExtResource("1_nor5h")

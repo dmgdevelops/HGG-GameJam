@@ -403,6 +403,7 @@ position = Vector2(5, 3.33333)
 shape = SubResource("CircleShape2D_4muj6")
 
 [node name="Interact_tutorial" parent="UI/Control" instance=ExtResource("21_txxbo")]
+layout_mode = 0
 offset_left = 26.0
 offset_right = 66.0
 scale = Vector2(0.6, 0.6)

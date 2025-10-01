@@ -60,6 +60,8 @@ func _take_damage( hurtbox : Hurtbox) -> void:
 	if hp > 0:
 		enemy_damaged.emit()
 	else:
+		#transition to real world
+		LevelManager.load_new_level("res://Scenes/Real_World/real_world_tidy.tscn")
 		self.queue_free()
 		
 func anim_direction() -> String:

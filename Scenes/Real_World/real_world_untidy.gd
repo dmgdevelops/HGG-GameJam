@@ -65,5 +65,5 @@ func fade_in(p_ui: Control):
 
 
 func _on_morgan_sleep() -> void:
+	LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")
 	print('sleep girl')
-

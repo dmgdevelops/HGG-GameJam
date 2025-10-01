@@ -27,7 +27,7 @@ texture = ExtResource("3_1x1ov")
 [node name="DoorCollisions" type="StaticBody2D" parent="."]
 
 [node name="DoorBarrier" type="CollisionShape2D" parent="DoorCollisions"]
-position = Vector2(-1, 35)
+position = Vector2(-1, 36)
 shape = SubResource("RectangleShape2D_lrohb")
 
 [node name="DoorOutline" type="CollisionPolygon2D" parent="DoorCollisions"]

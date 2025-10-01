@@ -9,26 +9,27 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6b0nx"]
 
 [node name="BigDoor" type="Node2D"]
+z_index = 4
 
 [node name="BigDoorOutline" type="Sprite2D" parent="."]
 texture = ExtResource("1_1jn02")
 
-[node name="BigDoorOpen" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-1, 37)
-scale = Vector2(1, 1.11111)
-texture = ExtResource("2_vu8wc")
-
 [node name="BigDoorClosed" type="Sprite2D" parent="."]
-z_index = -1
+z_index = -2
 position = Vector2(-1, 36)
 scale = Vector2(1, 1.12162)
 texture = ExtResource("3_6b0nx")
 
-[node name="DoorCollisions" type="Area2D" parent="."]
+[node name="BigDoorOpen" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(-1, 37)
+scale = Vector2(1, 1.11111)
+texture = ExtResource("2_vu8wc")
+
+[node name="DoorCollisions" type="StaticBody2D" parent="."]
 
 [node name="DoorBarrier" type="CollisionShape2D" parent="DoorCollisions"]
-position = Vector2(-2, 52)
+position = Vector2(-2, 53)
 shape = SubResource("RectangleShape2D_vu8wc")
 
 [node name="DoorOutline" type="CollisionPolygon2D" parent="DoorCollisions"]

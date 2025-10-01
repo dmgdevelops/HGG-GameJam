@@ -13,6 +13,8 @@ var overlay_pos := Vector2(-4, -83)
 
 var tween
 
+
+# animating dialogue character sprites
 func _ready() -> void:
 	tween = get_tree()
 

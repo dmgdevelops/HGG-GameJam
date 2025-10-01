@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c3ms75y6ihv5w"]
+[gd_scene load_steps=30 format=3 uid="uid://c3ms75y6ihv5w"]
 
 [ext_resource type="Texture2D" uid="uid://bnne6agtdhj7c" path="res://Assets/Real_World/room_irl_pix.png" id="1_rli47"]
 [ext_resource type="Script" uid="uid://bh3lv5uom1wj0" path="res://Scenes/Real_World/real_world_tidy.gd" id="1_tlqwr"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c7b17g8a14p81" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.tscn" id="14_5llra"]
 [ext_resource type="Script" uid="uid://bpwnfekla8der" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.gd" id="15_lf6ra"]
 [ext_resource type="Resource" uid="uid://ch41uafmqew71" path="res://Assets/Dialogue/Dialogue_Manager/Real_World_Key_Dialogues.dialogue" id="16_unuko"]
+[ext_resource type="AudioStream" uid="uid://drfp41diqh5i1" path="res://Assets/MusicAndSFX/Morgan's Room (Real World - V2).ogg" id="20_lf6ra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0yb8"]
 size = Vector2(22, 16)
@@ -315,3 +316,9 @@ unique_name_in_owner = true
 script = ExtResource("15_lf6ra")
 RootScene = NodePath("..")
 Dialogue_Resource = ExtResource("16_unuko")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_lf6ra")
+autoplay = true
+bus = &"BGM"
+parameters/looping = true

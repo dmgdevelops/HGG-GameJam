@@ -8589,7 +8589,7 @@ shape = SubResource("RectangleShape2D_23olr")
 position = Vector2(311.57, 507.438)
 shape = SubResource("RectangleShape2D_hk7fm")
 
-[node name="PlayerSpawn" parent="." instance=ExtResource("9_cuiei")]
+[node name="PlayerSpawn" parent="." groups=["Player"] instance=ExtResource("9_cuiei")]
 position = Vector2(249, 292)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -8608,6 +8608,10 @@ scale = Vector2(0.6, 0.6)
 [node name="DoorRight" parent="." instance=ExtResource("8_acg7p")]
 position = Vector2(551, 56)
 scale = Vector2(0.6, 0.6)
+
+[connection signal="body_entered" from="BigDoor/NextRoomTrigger" to="." method="_on_next_room_trigger_body_entered_middle"]
+[connection signal="body_entered" from="DoorLeft/NextRoomTrigger" to="." method="_on_next_room_trigger_body_entered_left"]
+[connection signal="body_entered" from="DoorRight/NextRoomTrigger" to="." method="_on_next_room_trigger_body_entered_right"]
 
 [editable path="BigDoor"]
 [editable path="DoorLeft"]

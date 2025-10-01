@@ -4946,12 +4946,12 @@ position = Vector2(100.5, -30.5)
 shape = SubResource("RectangleShape2D_f2ssh")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("3_udsec")]
-position = Vector2(280, 425)
+position = Vector2(280, 407)
 
 [node name="DarkMorgan_boss" parent="." instance=ExtResource("6_6fy6o")]
-position = Vector2(277, 261)
+position = Vector2(277, 272)
 
-[node name="PlayerDetection" parent="DarkMorgan_boss" index="1"]
+[node name="AttackDetection" parent="DarkMorgan_boss" index="2"]
 visible = false
 
 [node name="Hitbox" parent="DarkMorgan_boss" index="3"]

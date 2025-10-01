@@ -9,8 +9,11 @@ func _ready() -> void:
 		PlayerManager.player.set_physics_process(false)
 		Dialogic.timeline_ended.connect(ended)
 		Dialogic.start("Forest")
-
+	else:
+		PlayerManager.player.set_physics_process(false)
+		Dialogic.timeline_ended.connect(ended)
+		Dialogic.start("WakeUp")
 func ended():
 	Dialogic.timeline_ended.disconnect(ended)
 	PlayerManager.player.set_physics_process(true)
-	print("ended forest timeline")
+	print("ended current timeline")

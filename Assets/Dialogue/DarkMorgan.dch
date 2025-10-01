@@ -15,6 +15,24 @@
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
+"AttackFinish": {
+"export_overrides": {
+"image": "\"res://Assets/Evil Morgan/morganevil_FRAME2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"AttackReady": {
+"export_overrides": {
+"image": "\"res://Assets/Evil Morgan/morganevil_FRAME1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
 "Default": {
 "export_overrides": {
 "image": "\"res://Assets/morganevil5.png\""

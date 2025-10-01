@@ -15,6 +15,11 @@ extends Node2D
 
 
 func _ready() -> void:
+	
+	#For testing different flows
+	#Global.puzzle2Done = true
+	#Global.initialEncounterWithShadowMorgan = true
+	
 	#left door and right door closed, middle door open
 	if Global.puzzle2Done:
 		leftDoorBarrier.disabled = false #barrier intact
@@ -48,6 +53,8 @@ func _ready() -> void:
 		PlayerManager.player.set_physics_process(false)
 		Dialogic.timeline_ended.connect(ended)
 		Dialogic.start("Forest")
+	elif Global.puzzle2Done:
+		pass
 	else:
 		PlayerManager.player.set_physics_process(false)
 		Dialogic.timeline_ended.connect(ended)

@@ -4747,7 +4747,6 @@ polygon = PackedVector2Array(592, 608.2, 608, 608.2, 608, 560.2, 848, 560.2, 848
 position = Vector2(-256, -416.2)
 build_mode = 1
 polygon = PackedVector2Array(592, 608.2, 592, 544.2, 656, 544.2, 656, 416.2, 768, 416.2, 768, 544.2, 864, 544.2, 864, 832.2, 720, 832.2, 720, 720.2, 592, 720.2, 592, 640.2, 608, 640.2, 608, 704.2, 736, 704.2, 736, 816.2, 848, 816.2, 848, 560.2, 736, 560.2, 736, 544.2, 768, 544.2, 768, 416.2, 656, 416.2, 656, 544.2, 688, 544.2, 688, 560.2, 608, 560.2, 608, 608.2)
-disabled = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Puzzle3/Outlines/StaticBody2D"]
 build_mode = 1
@@ -4957,7 +4956,7 @@ position = Vector2(456, 42)
 position = Vector2(323, 336)
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("8_wey5n")]
-position = Vector2(373, 471)
+position = Vector2(380, 474)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_wey5n")

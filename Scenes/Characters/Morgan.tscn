@@ -713,7 +713,7 @@ animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="Walkbox" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9)
+position = Vector2(0, 6.333333)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_efa38")
 

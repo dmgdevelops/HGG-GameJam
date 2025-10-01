@@ -209,6 +209,7 @@ radius = 48.0416
 [node name="DarkMorgan_boss" type="CharacterBody2D"]
 scale = Vector2(0.125, 0.125)
 script = ExtResource("1_qfc36")
+hp = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ete27")

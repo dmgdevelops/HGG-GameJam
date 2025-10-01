@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgjlqge7kckck"]
+
+[ext_resource type="Script" uid="uid://lqn1f5mjr0uj" path="res://Scenes/Real_World/Dialogue/dialogue_sprite_manager.gd" id="1_wstpe"]
+
+[node name="DialogueSpriteManager" type="Node2D"]
+script = ExtResource("1_wstpe")

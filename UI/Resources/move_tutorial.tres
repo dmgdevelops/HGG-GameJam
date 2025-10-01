@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cg8d5nl04pbrv"]
+
+[ext_resource type="FontFile" uid="uid://dbr2xvtt5pbf5" path="res://Assets/Fonts/PixeloidSans-Bold.ttf" id="1_lgy76"]
+[ext_resource type="FontFile" uid="uid://dcp7r7twd1pey" path="res://Assets/Fonts/PixelMplus10-Regular.ttf" id="2_ta23g"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_lgy76"]
+color = Color(0.585523, 0.338057, 0.52317, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgy76"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ta23g"]
+
+[resource]
+Button/font_sizes/font_size = 27
+Button/fonts/font = ExtResource("1_lgy76")
+Button/styles/focus = SubResource("StyleBoxLine_lgy76")
+Button/styles/hover = SubResource("StyleBoxFlat_lgy76")
+Button/styles/pressed = SubResource("StyleBoxLine_ta23g")
+Label/font_sizes/font_size = 20
+Label/fonts/font = ExtResource("2_ta23g")

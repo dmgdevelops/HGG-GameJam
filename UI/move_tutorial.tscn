@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://e83cf607mlek"]
+
+[ext_resource type="Theme" uid="uid://cg8d5nl04pbrv" path="res://UI/Resources/move_tutorial.tres" id="1_8e88p"]
+
+[node name="move_tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_8e88p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 218.0
+offset_bottom = 41.0
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "W"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "A"
+
+[node name="Button3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "S"
+
+[node name="Button4" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "D"
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = " to Move"

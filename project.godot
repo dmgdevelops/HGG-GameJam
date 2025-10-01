@@ -63,6 +63,10 @@ save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
 
+[dialogue_manager]
+
+runtime/balloon_path="res://Assets/Dialogue/Dialogue_Manager/balloon.tscn"
+
 [display]
 
 window/stretch/mode="canvas_items"
@@ -73,7 +77,7 @@ project/assembly_name="Godot Proj"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg")
 
 [global_group]
 
@@ -95,6 +99,10 @@ attack={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":90,"key_label":0,"unicode":122,"location":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://Assets/Dialogue/Dialogue_Manager/untitled.dialogue", "res://Assets/Dialogue/Dialogue_Manager/Real_World_Key_Dialogues.dialogue")
 
 [layer_names]
 

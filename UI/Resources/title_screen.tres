@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cdxkvpdxtr5vu"]
+
+[ext_resource type="FontFile" uid="uid://dbr2xvtt5pbf5" path="res://Assets/Fonts/PixeloidSans-Bold.ttf" id="1_tam8j"]
+
+[resource]
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_tam8j")
+Label/font_sizes/font_size = 52
+Label/fonts/font = ExtResource("1_tam8j")
+MarginContainer/constants/margin_bottom = 200
+MarginContainer/constants/margin_left = 200
+MarginContainer/constants/margin_right = 200
+MarginContainer/constants/margin_top = 150

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3sfg075o3bew"]
+
+[ext_resource type="Script" uid="uid://dqv0lp01pvevf" path="res://Scenes/Real_World/non_dialogue_action.gd" id="1_fi7y4"]
+
+[node name="Non-Dialogue_Action" type="Area2D"]
+script = ExtResource("1_fi7y4")

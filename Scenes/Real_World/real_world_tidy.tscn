@@ -1,0 +1,317 @@
+[gd_scene load_steps=29 format=3 uid="uid://c3ms75y6ihv5w"]
+
+[ext_resource type="Texture2D" uid="uid://bnne6agtdhj7c" path="res://Assets/Real_World/room_irl_pix.png" id="1_rli47"]
+[ext_resource type="Script" uid="uid://bh3lv5uom1wj0" path="res://Scenes/Real_World/real_world_tidy.gd" id="1_tlqwr"]
+[ext_resource type="Texture2D" uid="uid://clac6kfp3sd2p" path="res://Assets/Real_World/room_tidy_overlay.png" id="2_yfxhb"]
+[ext_resource type="PackedScene" uid="uid://g88m6a5cndxk" path="res://Scenes/Real_World/morgan_tidy.tscn" id="3_tlqwr"]
+[ext_resource type="Shader" uid="uid://dewy242g8asir" path="res://Shaders/color_filter.gdshader" id="4_8moll"]
+[ext_resource type="PackedScene" uid="uid://cvoy11qvr843" path="res://Scenes/Real_World/actionable.tscn" id="5_5lhsx"]
+[ext_resource type="Texture2D" uid="uid://bvqtad2vo4rxk" path="res://Assets/Real_World/room_clip.png" id="5_n0q5j"]
+[ext_resource type="Texture2D" uid="uid://blfkv2h6fkxnn" path="res://Assets/Real_World/chair_w.png" id="7_y4456"]
+[ext_resource type="Texture2D" uid="uid://c4ur3ttog4c3x" path="res://Assets/Real_World/lamp_warm.png" id="8_lm5xm"]
+[ext_resource type="Texture2D" uid="uid://cti5uu356is3e" path="res://Assets/Real_World/mini_table.png" id="9_tarai"]
+[ext_resource type="PackedScene" uid="uid://d3sfg075o3bew" path="res://Scenes/Real_World/non_dialogue_action.tscn" id="10_63hwx"]
+[ext_resource type="Texture2D" uid="uid://dkd0rsf2l3t1x" path="res://Assets/Real_World/table.png" id="10_kx161"]
+[ext_resource type="PackedScene" uid="uid://dgjlqge7kckck" path="res://Scenes/Real_World/Dialogue/dialogue_sprite_manager.tscn" id="11_kixbj"]
+[ext_resource type="Texture2D" uid="uid://ci8uj8ug5202x" path="res://Assets/Dialogue/dialogueoverlay_gold.png" id="12_63hwx"]
+[ext_resource type="Texture2D" uid="uid://npqgmwneu2f1" path="res://Assets/Real_World/photogroup.png" id="12_lf6ra"]
+[ext_resource type="Texture2D" uid="uid://nfasgb1aiw7j" path="res://Assets/Real_World/irl_tidy_final.png" id="13_kixbj"]
+[ext_resource type="PackedScene" uid="uid://c7b17g8a14p81" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.tscn" id="14_5llra"]
+[ext_resource type="Script" uid="uid://bpwnfekla8der" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.gd" id="15_lf6ra"]
+[ext_resource type="Resource" uid="uid://ch41uafmqew71" path="res://Assets/Dialogue/Dialogue_Manager/Real_World_Key_Dialogues.dialogue" id="16_unuko"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0yb8"]
+size = Vector2(22, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5lhsx"]
+size = Vector2(27, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxh2m"]
+size = Vector2(22, 14.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kx161"]
+size = Vector2(52, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1axj"]
+size = Vector2(58, 99)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5llra"]
+radius = 15.8114
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3twv7"]
+radius = 10.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5llra"]
+size = Vector2(60, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0yb8"]
+shader = ExtResource("4_8moll")
+shader_parameter/mode = 1
+shader_parameter/linearColorSpace = true
+shader_parameter/color1 = Color(0.798726, 0.795865, 0.910862, 1)
+shader_parameter/color2 = Color(0.826586, 0.79165, 0.919056, 1)
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/opacity = 0.871
+
+[node name="Real_World_tidy" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_tlqwr")
+
+[node name="stage" type="CanvasLayer" parent="."]
+
+[node name="void" type="ColorRect" parent="stage"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BG" type="Control" parent="stage"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="BG" type="TextureRect" parent="stage/BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rli47")
+
+[node name="overlay_9" type="TextureRect" parent="stage/BG"]
+z_index = 99
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -125.0
+offset_right = 175.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yfxhb")
+
+[node name="border" type="StaticBody2D" parent="stage"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stage/border"]
+position = Vector2(0, -1)
+build_mode = 1
+polygon = PackedVector2Array(309, 249, 307, 479, 402, 480, 414, 490, 528, 492, 534, 511, 581, 511, 580, 557, 640, 558, 640, 530, 645, 501, 653, 494, 725, 495, 733.044, 483, 828, 483, 827, 434, 827, 302, 732, 302, 732, 248, 638, 247, 637, 221, 495, 222, 491, 248, 424, 248, 398, 251)
+
+[node name="Room_entitites" type="Control" parent="stage"]
+z_index = 1
+y_sort_enabled = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Room_mask" type="Sprite2D" parent="stage/Room_entitites"]
+clip_children = 1
+z_index = 1
+position = Vector2(576, 324)
+texture = ExtResource("5_n0q5j")
+
+[node name="Control" type="Control" parent="stage/Room_entitites/Room_mask"]
+y_sort_enabled = true
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = -350.0
+offset_bottom = -250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Morgan_Tidy" parent="stage/Room_entitites/Room_mask/Control" instance=ExtResource("3_tlqwr")]
+z_index = 0
+position = Vector2(140, -44)
+scale = Vector2(0.552, 0.552)
+collision_layer = 33
+
+[node name="chair" type="StaticBody2D" parent="stage/Room_entitites/Room_mask/Control"]
+y_sort_enabled = true
+position = Vector2(172, 62)
+
+[node name="chair2" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control/chair"]
+scale = Vector2(2, 2)
+texture = ExtResource("7_y4456")
+offset = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/chair"]
+position = Vector2(1, 4)
+shape = SubResource("RectangleShape2D_j0yb8")
+
+[node name="lamp" type="StaticBody2D" parent="stage/Room_entitites/Room_mask/Control"]
+y_sort_enabled = true
+position = Vector2(-253, 70)
+
+[node name="actionable" parent="stage/Room_entitites/Room_mask/Control/lamp" instance=ExtResource("5_5lhsx")]
+position = Vector2(56, -44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/lamp/actionable"]
+position = Vector2(272, 429)
+shape = SubResource("RectangleShape2D_5lhsx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/lamp"]
+position = Vector2(0, 1.875)
+shape = SubResource("RectangleShape2D_jxh2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control/lamp"]
+scale = Vector2(2, 2)
+texture = ExtResource("8_lm5xm")
+offset = Vector2(0, -20)
+
+[node name="mini_table" type="StaticBody2D" parent="stage/Room_entitites/Room_mask/Control"]
+y_sort_enabled = true
+position = Vector2(-12, 27)
+
+[node name="MiniTable" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control/mini_table"]
+scale = Vector2(2, 2)
+texture = ExtResource("9_tarai")
+offset = Vector2(0, -9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/mini_table"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_kx161")
+
+[node name="table" type="StaticBody2D" parent="stage/Room_entitites/Room_mask/Control"]
+position = Vector2(223, 60)
+
+[node name="Sprite2D" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control/table"]
+scale = Vector2(2, 2)
+texture = ExtResource("10_kx161")
+offset = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/table"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_k1axj")
+
+[node name="Book" type="Node2D" parent="stage/Room_entitites/Room_mask/Control"]
+
+[node name="actionable" parent="stage/Room_entitites/Room_mask/Control/Book" node_paths=PackedStringArray("dialogue_box_manager") instance=ExtResource("5_5lhsx")]
+dialogue_title = "BackInRealWorld"
+dialogue_box_manager = NodePath("../../../../../../DialogueBoxManager")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/Book/actionable"]
+z_index = 1
+position = Vector2(218, 4)
+shape = SubResource("CircleShape2D_5llra")
+debug_color = Color(0.656387, 0.36393, 0.92404, 0.42)
+
+[node name="photoframe" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control"]
+visible = false
+z_index = 100
+position = Vector2(217, 56)
+scale = Vector2(2, 2)
+
+[node name="Non-Dialogue_Action" parent="stage/Room_entitites/Room_mask/Control/photoframe" node_paths=PackedStringArray("item") instance=ExtResource("10_63hwx")]
+z_index = 100
+collision_layer = 16
+item = NodePath("../Group_photo")
+fade_speed = 0.3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/photoframe/Non-Dialogue_Action"]
+z_index = 1
+position = Vector2(-5, 3)
+shape = SubResource("CircleShape2D_3twv7")
+debug_color = Color(0.602835, 0.411913, 0.901782, 0.42)
+
+[node name="Group_photo" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control/photoframe"]
+position = Vector2(-116, -34)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("12_lf6ra")
+
+[node name="Room_exit" type="Area2D" parent="stage"]
+position = Vector2(608, 553)
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_exit"]
+shape = SubResource("RectangleShape2D_5llra")
+
+[node name="Light_switch_shader" type="CanvasLayer" parent="."]
+layer = 100
+visible = false
+
+[node name="Control" type="Control" parent="Light_switch_shader"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Light_switch_shader/Control"]
+material = SubResource("ShaderMaterial_j0yb8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueSprite" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="DialogueSpriteManager" parent="DialogueSprite" node_paths=PackedStringArray("character_sprite", "dialogue_overlay", "player") instance=ExtResource("11_kixbj")]
+unique_name_in_owner = true
+character_sprite = NodePath("Sprite2D")
+dialogue_overlay = NodePath("Control")
+fade_speed = 0.5
+player = NodePath("../../stage/Room_entitites/Room_mask/Control/Morgan_Tidy")
+
+[node name="Control" type="Control" parent="DialogueSprite/DialogueSpriteManager"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -84.0
+offset_right = -6.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="DialogueSprite/DialogueSpriteManager/Control"]
+layout_mode = 0
+offset_top = 81.0
+offset_right = 4000.0
+offset_bottom = 2322.0
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("12_63hwx")
+expand_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="DialogueSprite/DialogueSpriteManager"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_kixbj")
+
+[node name="DialogueBoxManager" parent="." node_paths=PackedStringArray("RootScene") instance=ExtResource("14_5llra")]
+unique_name_in_owner = true
+script = ExtResource("15_lf6ra")
+RootScene = NodePath("..")
+Dialogue_Resource = ExtResource("16_unuko")

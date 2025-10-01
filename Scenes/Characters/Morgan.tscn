@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5c0umy868tnb" path="res://Scripts/CharacterScripts/morgan.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://8d4yipr05fsr" path="res://Assets/MorganSprite.png" id="2_cvnsp"]
-[ext_resource type="Script" uid="uid://c236gcov7rued" path="res://Scripts/player_state_machine.gd" id="3_6olf2"]
+[ext_resource type="Script" path="res://Scripts/player_state_machine.gd" id="3_6olf2"]
 [ext_resource type="Texture2D" uid="uid://c20acgrtqfuvp" path="res://Assets/Morgan_full.png" id="3_bu0xj"]
 [ext_resource type="Texture2D" uid="uid://cwmwx7mdf6b2c" path="res://Assets/Morgan_stun1.png" id="3_qvlsx"]
 [ext_resource type="Script" uid="uid://bin7fnsd50k4n" path="res://Scripts/state_idle.gd" id="4_lhtui"]

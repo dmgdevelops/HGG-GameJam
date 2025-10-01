@@ -7,4 +7,6 @@ func _ready() -> void:
 
 func start_button_pressed():
 	# add some code here
+	LevelManager.load_new_level("res://Scenes/Real_World/real_world_untidy2.tscn")
 	print('started')
+	

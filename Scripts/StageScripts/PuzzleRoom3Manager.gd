@@ -31,7 +31,8 @@ func _on_reset_button_reset_pressed():
 
 
 func _on_next_room_trigger_body_entered(body):
-	get_tree().change_scene_to_file("res://Scenes/Stages/TestScenes/boss_room_1.tscn")
+	LevelManager.load_new_level("res://Scenes/Stages/TestScenes/boss_room_1.tscn")
+	
 func _free_level() -> void:
 	queue_free()
 	PlayerManager.unparent_player(self)

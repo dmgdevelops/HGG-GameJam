@@ -22,6 +22,7 @@ func _ready() -> void:
 		
 func ended():
 	Dialogic.timeline_ended.disconnect(ended)
+	LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")
 	PlayerManager.player.set_physics_process(true)
 	print("ended first boss encounter")
 
@@ -33,8 +34,9 @@ func _on_dialogic_signal(arg : String):
 func _on_next_room_trigger_body_entered(body):
 	if Global.initialEncounterWithShadowMorgan:
 		get_tree().change_scene_to_file("res://Scenes/Real World/real_world_tidy.tscn")
-	else:
-		get_tree().change_scene_to_file("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")
+	#else:
+		#LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")
+		
 func _free_level() -> void:
 	queue_free()
 	PlayerManager.unparent_player(self)

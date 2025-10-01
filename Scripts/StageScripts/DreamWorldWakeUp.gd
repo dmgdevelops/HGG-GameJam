@@ -66,6 +66,7 @@ func change_scenes(scene_name):
 		
 	if scene_name == "PuzzleRoom2":
 		LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/PuzzleRoom2.tscn")
+		
 	if scene_name == "PuzzleRoom3":
 		LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/PuzzleRoom3.tscn")
 

@@ -20,7 +20,8 @@ func _process(_delta):
 
 
 func _on_next_room_trigger_body_entered(body):
-	get_tree().change_scene_to_file("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")
+	LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")
+	
 func _free_level() -> void:
 	queue_free()
 	PlayerManager.unparent_player(self)

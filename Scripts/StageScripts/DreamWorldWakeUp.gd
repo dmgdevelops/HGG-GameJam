@@ -11,6 +11,8 @@ extends Node2D
 @onready var rightDoorOpen = $DoorRight/OpenDoor
 @onready var rightDoorClosed = $DoorRight/ClosedDoor
 @onready var rightDoorBarrier = $DoorRight/DoorCollisions/DoorBarrier
+@onready var player_spawn: Node2D = $PlayerSpawn
+
 
 func _ready() -> void:
 	#left door and right door closed, middle door open
@@ -40,6 +42,8 @@ func _ready() -> void:
 	
 	self.y_sort_enabled = true
 	PlayerManager.set_as_parent( self )
+	PlayerManager.set_player_pos(player_spawn.global_position)
+	LevelManager.level_load_started.connect ( _free_level )
 	if Global.initialEncounterWithShadowMorgan == false:
 		PlayerManager.player.set_physics_process(false)
 		Dialogic.timeline_ended.connect(ended)
@@ -58,11 +62,13 @@ func ended():
 		
 func change_scenes(scene_name):
 	if scene_name == "PuzzleRoom1":
-		get_tree().change_scene_to_file("res://Scenes/Stages/FinalScenes/PuzzleRoom1.tscn")
+		LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/PuzzleRoom1.tscn")
+		
 	if scene_name == "PuzzleRoom2":
-		get_tree().change_scene_to_file("res://Scenes/Stages/FinalScenes/PuzzleRoom2.tscn")
+		LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/PuzzleRoom2.tscn")
+		
 	if scene_name == "PuzzleRoom3":
-		get_tree().change_scene_to_file("res://Scenes/Stages/FinalScenes/PuzzleRoom3.tscn")
+		LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/PuzzleRoom3.tscn")
 
 func _on_next_room_trigger_body_entered_left(body):
 	if body.is_in_group("Player"):
@@ -77,3 +83,7 @@ func _on_next_room_trigger_body_entered_right(body):
 func _on_next_room_trigger_body_entered_middle(body):
 	if body.is_in_group("Player"):
 		change_scenes("PuzzleRoom3")
+
+func _free_level() -> void:
+	queue_free()
+	PlayerManager.unparent_player(self)

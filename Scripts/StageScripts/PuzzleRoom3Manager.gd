@@ -25,3 +25,7 @@ func _on_reset_button_reset_pressed():
 	for box in boxes2:
 			box.get_child(0).reset_position()
 	pass # Replace with function body.
+
+
+func _on_next_room_trigger_body_entered(body):
+	get_tree().change_scene_to_file("res://Scenes/Stages/TestScenes/boss_room_1.tscn")

@@ -25,3 +25,10 @@ func ended():
 func _on_dialogic_signal(arg : String):
 	if arg == "sword":
 		Global.initialEncounterWithShadowMorgan = true
+
+
+func _on_next_room_trigger_body_entered(body):
+	if Global.initialEncounterWithShadowMorgan:
+		get_tree().change_scene_to_file("res://Scenes/Real World/real_world_tidy.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")

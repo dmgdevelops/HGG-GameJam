@@ -6031,6 +6031,9 @@ stream = ExtResource("17_fji2q")
 autoplay = true
 parameters/looping = true
 
+[connection signal="body_entered" from="SmallDoor/NextRoomTrigger" to="." method="_on_next_room_trigger_body_entered"]
+
+[editable path="SmallDoor"]
 [editable path="PicturePieces/PicturePiece"]
 [editable path="PicturePieces/PicturePiece2"]
 [editable path="PicturePieces/PicturePiece3"]

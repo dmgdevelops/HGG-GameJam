@@ -1,7 +1,6 @@
 ~ start
 Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
 # scene variables are from root scene by default
-Nathan: {{test}}
 Nathan: Here are some choices.
 - First one
 	Nathan: You picked the first one.
@@ -15,8 +14,8 @@ Nathan: For more information see the online documentation.
 # Real World part 1
 ~ BookInteraction
  : [next=0.5] [do! DialogueSprite.fade_in()]
-Morgan: Ah..the Once and Future King.. I have to return it next week.
-Morgan: I'm not sure I'll finish it by then.. maybe I can renew it?"
+Morgan:: Ah..the Once and Future King.. I have to return it next week.
+Morgan:: I'm not sure I'll finish it by then.. maybe I can renew it?"
 do DialogueSprite.fade_out()
 => END!
 
@@ -33,3 +32,15 @@ do DialogueSprite.fade_out()
 Morgan: Guess I can finally return this book after our trip!
 do DialogueSprite.fade_out()
 => END
+
+~ GoToSleep
+do morgan.set_physics_process(false)
+ : Go to sleep?
+- Yes
+	do morgan_sleep.emit()
+	do DialogueSprite.fade_out()
+	=> END
+- No
+	do DialogueSprite.fade_out()
+	do morgan.set_physics_process(true)
+	=> END

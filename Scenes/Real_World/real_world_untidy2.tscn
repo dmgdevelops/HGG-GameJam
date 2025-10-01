@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cxld05w4w36ib"]
+[gd_scene load_steps=36 format=3 uid="uid://cxld05w4w36ib"]
 
 [ext_resource type="Script" uid="uid://bof5evdssfmcc" path="res://Scenes/Real_World/real_world_untidy.gd" id="1_okmly"]
 [ext_resource type="Texture2D" uid="uid://7v3c8t6h4hrf" path="res://Assets/Real_World/room_untidy.png" id="2_7ugby"]
@@ -65,6 +65,9 @@ shader_parameter/shine_angle = -45.0
 shader_parameter/shine_duration = 3.0
 shader_parameter/shine_speed = 300.0
 shader_parameter/shine_width = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3mk1"]
+radius = 23.0217
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cu0he"]
 shader = ExtResource("11_txxbo")
@@ -178,12 +181,13 @@ offset_bottom = -250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Morgan_Tidy2" parent="stage/Room_entitites/Room_mask/Control" instance=ExtResource("4_co1fq")]
+[node name="Morgan_untidy" parent="stage/Room_entitites/Room_mask/Control" instance=ExtResource("4_co1fq")]
+unique_name_in_owner = true
 position = Vector2(35, 230)
 scale = Vector2(0.552, 0.552)
 collision_layer = 33
 
-[node name="Actionable_Finder" parent="stage/Room_entitites/Room_mask/Control/Morgan_Tidy2/Direction" index="0"]
+[node name="Actionable_Finder" parent="stage/Room_entitites/Room_mask/Control/Morgan_untidy/Direction" index="0"]
 collision_layer = 32
 
 [node name="chair" type="StaticBody2D" parent="stage/Room_entitites/Room_mask/Control"]
@@ -288,6 +292,18 @@ debug_color = Color(0.690911, 0.361036, 0.867103, 0.42)
 material = SubResource("ShaderMaterial_co1fq")
 texture = ExtResource("11_qjmvg")
 
+[node name="BedInteraction" type="Node2D" parent="stage"]
+z_index = 2
+position = Vector2(750, 226)
+
+[node name="actionable" parent="stage/BedInteraction" node_paths=PackedStringArray("dialogue_box_manager") instance=ExtResource("7_id0qg")]
+dialogue_title = "GoToSleep"
+dialogue_box_manager = NodePath("../../../DialogueBoxManager")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/BedInteraction/actionable"]
+position = Vector2(5, 17)
+shape = SubResource("CircleShape2D_s3mk1")
+
 [node name="Night_Shader" type="CanvasLayer" parent="."]
 layer = 100
 
@@ -316,7 +332,7 @@ unique_name_in_owner = true
 character_sprite = NodePath("Sprite2D")
 dialogue_overlay = NodePath("Control")
 fade_speed = 0.5
-player = NodePath("../../stage/Room_entitites/Room_mask/Control/Morgan_Tidy2")
+player = NodePath("../../stage/Room_entitites/Room_mask/Control/Morgan_untidy")
 
 [node name="Control" type="Control" parent="DialogueSprite/DialogueSpriteManager"]
 layout_mode = 3
@@ -332,9 +348,9 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="DialogueSprite/DialogueSpriteManager/Control"]
 layout_mode = 0
-offset_top = 81.0
+offset_top = 138.0
 offset_right = 4000.0
-offset_bottom = 2322.0
+offset_bottom = 1986.0
 scale = Vector2(0.29, 0.29)
 texture = ExtResource("12_8gtjo")
 expand_mode = 1
@@ -391,4 +407,6 @@ offset_left = 26.0
 offset_right = 66.0
 scale = Vector2(0.6, 0.6)
 
-[editable path="stage/Room_entitites/Room_mask/Control/Morgan_Tidy2"]
+[connection signal="morgan_sleep" from="." to="." method="_on_morgan_sleep"]
+
+[editable path="stage/Room_entitites/Room_mask/Control/Morgan_untidy"]

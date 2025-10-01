@@ -12,6 +12,10 @@ extends Node2D
 @onready var interact_tutorial_area = $UI/Control/Area2D
 @onready var interact_tutorial = $UI/Control/Interact_tutorial
 
+@onready var morgan = %Morgan_untidy
+
+signal morgan_sleep
+
 var tween 
 # Scene States
 var test = "j"
@@ -58,3 +62,8 @@ func fade_out(p_ui : Control):
 func fade_in(p_ui: Control):
 	tween.create_tween().parallel().tween_property(p_ui, "modulate:a", 1 , fade_speed)
 	tween.create_tween().parallel().set_ease(1).tween_property(p_ui, "position:y", p_ui.position.y - 20  , fade_speed)
+
+
+func _on_morgan_sleep() -> void:
+	print('sleep girl')
+

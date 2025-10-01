@@ -4964,6 +4964,7 @@ stream = ExtResource("12_wey5n")
 autoplay = true
 parameters/looping = true
 
+[connection signal="body_entered" from="SmallDoor/NextRoomTrigger" to="." method="_on_next_room_trigger_body_entered"]
 [connection signal="reset_pressed" from="ResetButton" to="." method="_on_reset_button_reset_pressed"]
 
 [editable path="SmallDoor"]

@@ -14,3 +14,7 @@ func _process(_delta):
 	if Global.morgan_page_collection == numPagesToCollect:
 		doorBarrier.disabled = true
 		doorClosed.visible=false
+
+
+func _on_next_room_trigger_body_entered(body):
+	get_tree().change_scene_to_file("res://Scripts/StageScripts/BossRoom.gd")

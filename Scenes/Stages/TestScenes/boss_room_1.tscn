@@ -4969,5 +4969,7 @@ position = Vector2(350, 97)
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 autoplay = true
 
+[connection signal="body_entered" from="SmallDoor/NextRoomTrigger" to="." method="_on_next_room_trigger_body_entered"]
+
 [editable path="DarkMorgan_boss"]
 [editable path="SmallDoor"]

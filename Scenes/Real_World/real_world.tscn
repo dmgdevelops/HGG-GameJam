@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ysoawj8cwk70"]
 
 [ext_resource type="Texture2D" uid="uid://bnne6agtdhj7c" path="res://Assets/Real_World/room_irl_pix.png" id="1_6bk2s"]
-[ext_resource type="Shader" path="res://Shaders/real_world_tidy.gdshader" id="3_fl3h2"]
+[ext_resource type="Shader" uid="uid://dewy242g8asir" path="res://Shaders/color_filter.gdshader" id="3_fl3h2"]
 [ext_resource type="PackedScene" uid="uid://g88m6a5cndxk" path="res://Scenes/Real_World/morgan_tidy.tscn" id="3_ytdac"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s8h22"]

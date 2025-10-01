@@ -19,9 +19,10 @@ func set_player_pos( _new_pos : Vector2 ) -> void:
 	pass
 	
 func set_as_parent ( _p : Node2D ) -> void:
-	if player.get_parent():
-		player.get_parent().remove_child( player )
-	_p.add_child( player )
+	pass
+	#if player.get_parent():
+		#player.get_parent().remove_child( player )
+	#_p.add_child( player )
 	
 func unparent_player ( _p : Node2D ) -> void:
 	_p.remove_child( player )

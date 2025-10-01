@@ -32,8 +32,9 @@ func _on_dialogic_signal(arg : String):
 
 
 func _on_next_room_trigger_body_entered(body):
-	if Global.initialEncounterWithShadowMorgan:
-		get_tree().change_scene_to_file("res://Scenes/Real World/real_world_tidy.tscn")
+	if body is Player:
+		if Global.initialEncounterWithShadowMorgan:
+			LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")
 	#else:
 		#LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")
 		

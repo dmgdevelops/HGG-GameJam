@@ -17,10 +17,12 @@ func _process(_delta):
 	if Global.morgan_picture_collection == numPicsToCollect:
 		doorBarrier.disabled = true
 		doorClosed.visible=false
+		Global.puzzle2Done = true
 
 
 func _on_next_room_trigger_body_entered(body):
-	LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")
+	if body is Player:
+		LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")
 	
 func _free_level() -> void:
 	queue_free()

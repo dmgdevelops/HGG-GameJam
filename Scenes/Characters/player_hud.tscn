@@ -18,13 +18,18 @@ grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Control"]
 position = Vector2(971, 17)
-scale = Vector2(2.125, 2.125)
+scale = Vector2(4, 4)
 texture = ExtResource("1_nrsrc")
 region_enabled = true
 region_rect = Rect2(30, 0, 32, 8)
 
 [node name="HFlowContainer" type="HFlowContainer" parent="Control"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0269097
+anchor_top = 0.0231481
+anchor_right = -0.0269097
+anchor_bottom = 0.0231481
 offset_left = 882.0
 offset_top = 28.0
 offset_right = 1065.0

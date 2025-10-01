@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccyj0lnsv4r2"]
+
+[ext_resource type="Script" uid="uid://bo47y0iow5805" path="res://Scripts/ItemScripts/page.gd" id="1_rbvwo"]
+[ext_resource type="Texture2D" uid="uid://242engq44jbe" path="res://Assets/Picture Pieces/piece1.png" id="2_rbvwo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e40xn"]
+radius = 5.0
+
+[node name="PicturePiece" type="Area2D"]
+script = ExtResource("1_rbvwo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e40xn")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-4, 5)
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("2_rbvwo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

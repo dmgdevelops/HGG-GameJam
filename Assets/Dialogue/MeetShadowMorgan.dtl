@@ -1,0 +1,12 @@
+[wait time="2.0"]
+join DarkMorgan (Default) center
+Morgan: Who is that?
+Morgan: She looks like me... but different? Who are you?
+DarkMorgan: ...
+[wait time="0.5"]
+update DarkMorgan (AttackReady)
+[wait time="1.0"]
+join DarkMorgan (AttackFinish) center
+[wait time="2.0"]
+[signal arg="sword"]
+[end_timeline]

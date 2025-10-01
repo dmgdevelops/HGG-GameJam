@@ -1,22 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://jl1thhh8eylt"]
+[gd_scene load_steps=6 format=3 uid="uid://jl1thhh8eylt"]
 
 [ext_resource type="Texture2D" uid="uid://cgjy52k80nuw3" path="res://Assets/fantasyBigDoor.png" id="1_1jn02"]
 [ext_resource type="Texture2D" uid="uid://bcts58reicfyq" path="res://Assets/fantasyDoorOpen.png" id="2_vu8wc"]
 [ext_resource type="Texture2D" uid="uid://bvprc5jr2rebl" path="res://Assets/fantasyDoorClosed.png" id="3_6b0nx"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vu8wc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6b0nx"]
+
 [node name="BigDoor" type="Node2D"]
+z_index = 4
 
 [node name="BigDoorOutline" type="Sprite2D" parent="."]
 texture = ExtResource("1_1jn02")
 
+[node name="BigDoorClosed" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(-1, 36)
+scale = Vector2(1, 1.12162)
+texture = ExtResource("3_6b0nx")
+
 [node name="BigDoorOpen" type="Sprite2D" parent="."]
-z_index = -1
+z_index = -3
 position = Vector2(-1, 37)
 scale = Vector2(1, 1.11111)
 texture = ExtResource("2_vu8wc")
 
-[node name="BigDoorClosed" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(-1, 36)
-scale = Vector2(1, 1.12162)
-texture = ExtResource("3_6b0nx")
+[node name="DoorCollisions" type="StaticBody2D" parent="."]
+
+[node name="DoorBarrier" type="CollisionShape2D" parent="DoorCollisions"]
+position = Vector2(-2, 53)
+shape = SubResource("RectangleShape2D_vu8wc")
+
+[node name="DoorOutline" type="CollisionPolygon2D" parent="DoorCollisions"]
+build_mode = 1
+polygon = PackedVector2Array(11, 63, 21, 72, 31, 65, 51, 38, 52, 7, 54, -29, 32, -49, 7, -56, -19, -54, -30, -47, -49, -36, -57, -20, -59, -1, -58, 13, -53, 27, -52, 46, -44, 58, -32, 62, -21, 72, -13, 63, -16, 25, -17, -4, 14, -4, 12, 25, 12, 52)
+
+[node name="NextRoomTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextRoomTrigger"]
+position = Vector2(-2, 31)
+shape = SubResource("RectangleShape2D_6b0nx")

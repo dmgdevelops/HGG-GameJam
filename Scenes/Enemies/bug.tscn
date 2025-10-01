@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://1swqs17fjtcj"]
+[gd_scene load_steps=31 format=3 uid="uid://1swqs17fjtcj"]
 
 [ext_resource type="Script" uid="uid://bbvsrtwsq6jy4" path="res://Scripts/EnemyScripts/Bug.gd" id="1_xv02u"]
 [ext_resource type="Texture2D" uid="uid://pjypw2rd4icj" path="res://Assets/spider_spritesheet.png" id="2_0r566"]
@@ -165,18 +165,17 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_am2bn"]
-radius = 6.0
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eggi0"]
-radius = 5.09902
+radius = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_am2bn"]
+size = Vector2(5, 5)
 
 [node name="Bug" type="CharacterBody2D"]
-collision_layer = 128
+collision_layer = 129
 script = ExtResource("1_xv02u")
-
-[node name="BugShape" type="CollisionPolygon2D" parent="."]
-build_mode = 1
-polygon = PackedVector2Array(-8, -6, 8, -6, 8, 6, -8, 6)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yqajc")
@@ -185,11 +184,11 @@ animation = &"destroy"
 [node name="Hitbox" parent="." instance=ExtResource("3_tli2y")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_am2bn")
+debug_color = Color(0.921569, 0.176471, 0.0392157, 0.419608)
 
 [node name="Hurtbox" parent="." instance=ExtResource("4_am2bn")]
-collision_layer = 256
-collision_mask = 0
 
 [node name="BugHurtbox" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_eggi0")
@@ -210,3 +209,6 @@ next_state = NodePath("../Idle")
 [node name="Stun" type="Node" parent="BugStateMachine"]
 
 [node name="Destroy" type="Node" parent="BugStateMachine"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_am2bn")

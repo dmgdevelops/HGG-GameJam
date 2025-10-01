@@ -1,20 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://dft3i4k76iwx7"]
+[gd_scene load_steps=6 format=3 uid="uid://dft3i4k76iwx7"]
 
 [ext_resource type="Texture2D" uid="uid://53txtprivkmt" path="res://Assets/fantasySmallDoor.png" id="1_g5ql1"]
 [ext_resource type="Texture2D" uid="uid://bvprc5jr2rebl" path="res://Assets/fantasyDoorClosed.png" id="2_lrohb"]
 [ext_resource type="Texture2D" uid="uid://bcts58reicfyq" path="res://Assets/fantasyDoorOpen.png" id="3_1x1ov"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrohb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x1ov"]
+
 [node name="SmallDoor" type="Node2D"]
+z_index = 4
 
 [node name="DoorOutline" type="Sprite2D" parent="."]
 texture = ExtResource("1_g5ql1")
 
 [node name="ClosedDoor" type="Sprite2D" parent="."]
-z_index = -1
+z_index = -2
 position = Vector2(0, 26)
 texture = ExtResource("2_lrohb")
 
 [node name="OpenDoor" type="Sprite2D" parent="."]
-z_index = -1
+z_index = -3
 position = Vector2(0, 26)
 texture = ExtResource("3_1x1ov")
+
+[node name="DoorCollisions" type="StaticBody2D" parent="."]
+
+[node name="DoorBarrier" type="CollisionShape2D" parent="DoorCollisions"]
+position = Vector2(-1, 36)
+shape = SubResource("RectangleShape2D_lrohb")
+
+[node name="DoorOutline" type="CollisionPolygon2D" parent="DoorCollisions"]
+build_mode = 1
+polygon = PackedVector2Array(7, 45.4221, 7, 3, -9, 3, -9, 44.5515, -12.9698, 47.3459, -21, 44, -30, 33, -29.1952, 23.946, -25, 24, -26, -12, 0, -33, 25, -15, 25, 20, 31, 25, 31, 36, 23, 42, 10.7048, 47.3791)
+
+[node name="NextRoomTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextRoomTrigger"]
+position = Vector2(-1, 14)
+shape = SubResource("RectangleShape2D_1x1ov")

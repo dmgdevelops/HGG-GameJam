@@ -22,7 +22,7 @@ func _ready():
 	hitbox.Damaged.connect(_take_damage)
 	pass
 	
-func _process(delta):
+func _process( _delta):
 	pass
 
 func _physics_process(_delta):
@@ -53,7 +53,11 @@ func update_animation(state:String) -> void:
 func _take_damage( hurtbox : Hurtbox) -> void:
 	hp -= hurtbox.damage
 	print("took damage " + str(hp))
-	enemy_damaged.emit()
+	if hp > 0:
+		enemy_damaged.emit()
+	else:
+		Global.morgan_enemies_slayed+=1
+		self.queue_free()
 #func anim_direction() -> String:
 	#if cardinal_direction == Vector2.DOWN:
 		#return "down"

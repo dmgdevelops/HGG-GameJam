@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw0cijslrfqha"]
+
+[ext_resource type="Script" uid="uid://d25ipx0dwythi" path="res://Scenes/Generics/player_detection.gd" id="1_a5id7"]
+
+[node name="PlayerDetection" type="Area2D"]
+monitorable = false
+script = ExtResource("1_a5id7")

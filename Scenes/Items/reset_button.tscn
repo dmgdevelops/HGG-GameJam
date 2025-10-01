@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dew7hvn3gccdy"]
+
+[ext_resource type="Texture2D" uid="uid://dxb28f2eqe181" path="res://Assets/Dungeon_Tileset_Button.png" id="1_t6bx3"]
+[ext_resource type="Script" uid="uid://d0ov57sixtfdx" path="res://Scripts/ItemScripts/reset_button.gd" id="1_y0ard"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0ard"]
+size = Vector2(16, 15)
+
+[node name="ResetButton" type="Node2D"]
+script = ExtResource("1_y0ard")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t6bx3")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_y0ard")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

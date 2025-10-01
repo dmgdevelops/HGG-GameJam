@@ -30,6 +30,6 @@ func Physics( _delta: float) -> State:
 	return null
 	
 func HandleInput (_event: InputEvent ) -> State:
-	if _event.is_action_pressed("attack"):
+	if _event.is_action_pressed("attack") &&  Global.initialEncounterWithShadowMorgan != false:
 		return attack
 	return null

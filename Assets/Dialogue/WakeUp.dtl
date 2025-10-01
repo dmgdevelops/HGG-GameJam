@@ -1,4 +1,9 @@
-join Morgan center
+[wait time="1.0"]
+join Morgan (Sword) center
 Morgan: Where did this sword come from?
+update Morgan (Dream Morgan) center [fade="Fade Cross"]
+[wait time="1.0"]
 Morgan: I think this dream is telling me, I have to fight!
+update Morgan (Sword)
+Press Z to swing your sword!
 [end_timeline]

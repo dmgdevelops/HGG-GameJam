@@ -44,3 +44,36 @@ do morgan.set_physics_process(false)
 	do DialogueSprite.fade_out()
 	do morgan.set_physics_process(true)
 	=> END
+
+~ secret
+  : ...
+=> END
+
+# -- Forest Dialogues
+~ Forest
+ : [next=0.5] [do! DialogueSprite.fade_in()]
+Morgan: Where am I? These clothes...
+Morgan: All I can remember is I was trying to finish my book and I knocked out.
+Morgan: Could this be a dream?
+do DialogueSprite.fade_out()
+=> END
+
+~ MeetShadowMorgan
+ : [next=0.5] [do! DialogueSprite.fade_in()] [do DialogueSprite.show_dark_morgan()]
+Morgan: Who is that?
+Morgan: She looks like me... but different? Who are you?
+Dark Morgan: ...
+do DialogueSprite.hide_dark_morgan()
+do Dialogic.start('MeetShadowMorgan')
+do! DialogueSprite.fade_out_character_only()
+=> END
+
+~ AcquireSword
+ : [next=0.5]  [do DialogueSprite.sword_acquired()] [do! DialogueSprite.fade_in()] 
+Morgan: Where did this sword come from?
+do DialogueSprite.show_morgan()
+Morgan: I think this dream is telling me, I have to fight!
+do DialogueSprite.sword_acquired()
+ : Press Z/J to swing your sword!
+do DialogueSprite.fade_out()
+=> END

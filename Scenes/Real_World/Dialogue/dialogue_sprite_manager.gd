@@ -19,7 +19,7 @@ func _ready() -> void:
 	tween = get_tree()
 
 	dialogue_overlay.position = overlay_pos
-	character_sprite.position.x = center
+	#character_sprite.position.x = center
 	character_sprite.position.y = character_y_pos
 	dialogue_overlay.modulate.a = 0
 	character_sprite.modulate.a = 0
@@ -30,6 +30,8 @@ func dialogue_insert(): pass
 func fade_in(): 
 	character_sprite.create_tween().parallel().tween_property(character_sprite, "modulate:a", 1 , fade_speed)
 	tween.create_tween().parallel().tween_property(dialogue_overlay, "modulate:a", 1 , fade_speed)
+	if player ==  null:
+		player = PlayerManager.player
 	player.set_physics_process(false)
 
 func fade_out(): 

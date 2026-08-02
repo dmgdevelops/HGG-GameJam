@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5c0umy868tnb" path="res://Scripts/CharacterScripts/morgan.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://8d4yipr05fsr" path="res://Assets/MorganSprite.png" id="2_cvnsp"]
-[ext_resource type="Script" path="res://Scripts/player_state_machine.gd" id="3_6olf2"]
+[ext_resource type="Script" uid="uid://c236gcov7rued" path="res://Scripts/player_state_machine.gd" id="3_6olf2"]
 [ext_resource type="Texture2D" uid="uid://c20acgrtqfuvp" path="res://Assets/Morgan_full.png" id="3_bu0xj"]
 [ext_resource type="Texture2D" uid="uid://cwmwx7mdf6b2c" path="res://Assets/Morgan_stun1.png" id="3_qvlsx"]
 [ext_resource type="Script" uid="uid://bin7fnsd50k4n" path="res://Scripts/state_idle.gd" id="4_lhtui"]
@@ -746,7 +746,6 @@ knockback_speed = 150.0
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 0
-monitoring = false
 script = ExtResource("10_4j4hc")
 metadata/_custom_type_script = "uid://dh2hx5jh1b2b0"
 
@@ -759,8 +758,8 @@ debug_color = Color(0.545098, 0.556863, 0.247059, 0.729412)
 script = ExtResource("8_1vmav")
 
 [node name="Hurtbox" parent="Interactions" instance=ExtResource("9_4j4hc")]
-collision_mask = 256
-monitoring = false
+unique_name_in_owner = true
+collision_mask = 272
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/Hurtbox"]
 position = Vector2(0, 10)

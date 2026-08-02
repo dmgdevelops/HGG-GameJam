@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://u46mem36l6b7"]
+
+[ext_resource type="FontFile" uid="uid://d1rmb8rpy3yal" path="res://Assets/Fonts/courier-prime/Courier Prime/Courier Prime Bold.ttf" id="1_7mflo"]
+[ext_resource type="FontFile" uid="uid://564ohe1fwmd" path="res://Assets/Fonts/courier-prime/Courier Prime/Courier Prime Italic.ttf" id="1_bc0dv"]
+[ext_resource type="FontFile" uid="uid://coe88gvbcgxlr" path="res://Assets/Fonts/courier-prime/Courier Prime/Courier Prime.ttf" id="2_7mflo"]
+
+[resource]
+default_font = ExtResource("2_7mflo")
+default_font_size = 24
+LinkButton/fonts/font = ExtResource("1_bc0dv")
+RichTextLabel/fonts/bold_font = ExtResource("1_7mflo")

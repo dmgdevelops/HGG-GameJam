@@ -71,6 +71,14 @@ func _ready() -> void:
 func _unhandled_input(_event: InputEvent) -> void:
 	# Only the balloon is allowed to handle input while it's showing
 	get_viewport().set_input_as_handled()
+	#if Input.is_action_just_pressed("pause_game"):
+	#	if MenuButtons.visible:
+	#		MenuButtons.hide()
+	#		#balloon.focus_mode = Control.FOCUS_ALL
+	#		#balloon.grab_focus()
+	#	else:
+	#		MenuButtons.show()
+	#		print('menu')
 
 
 func _notification(what: int) -> void:

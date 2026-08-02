@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c3ms75y6ihv5w"]
+[gd_scene load_steps=29 format=3 uid="uid://c3ms75y6ihv5w"]
 
 [ext_resource type="Texture2D" uid="uid://bnne6agtdhj7c" path="res://Assets/Real_World/room_irl_pix.png" id="1_rli47"]
 [ext_resource type="Script" uid="uid://bh3lv5uom1wj0" path="res://Scenes/Real_World/real_world_tidy.gd" id="1_tlqwr"]
@@ -15,11 +15,10 @@
 [ext_resource type="PackedScene" uid="uid://dgjlqge7kckck" path="res://Scenes/Real_World/Dialogue/dialogue_sprite_manager.tscn" id="11_kixbj"]
 [ext_resource type="Texture2D" uid="uid://ci8uj8ug5202x" path="res://Assets/Dialogue/dialogueoverlay_gold.png" id="12_63hwx"]
 [ext_resource type="Texture2D" uid="uid://npqgmwneu2f1" path="res://Assets/Real_World/photogroup.png" id="12_lf6ra"]
+[ext_resource type="Script" uid="uid://buhtxdhryuree" path="res://Scenes/Real_World/room_exit.gd" id="13_5llra"]
 [ext_resource type="Texture2D" uid="uid://nfasgb1aiw7j" path="res://Assets/Real_World/irl_tidy_final.png" id="13_kixbj"]
 [ext_resource type="PackedScene" uid="uid://c7b17g8a14p81" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.tscn" id="14_5llra"]
-[ext_resource type="Script" uid="uid://bpwnfekla8der" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.gd" id="15_lf6ra"]
 [ext_resource type="Resource" uid="uid://ch41uafmqew71" path="res://Assets/Dialogue/Dialogue_Manager/Real_World_Key_Dialogues.dialogue" id="16_unuko"]
-[ext_resource type="AudioStream" uid="uid://drfp41diqh5i1" path="res://Assets/MusicAndSFX/Morgan's Room (Real World - V2).ogg" id="20_lf6ra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j0yb8"]
 size = Vector2(22, 16)
@@ -149,6 +148,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Morgan_Tidy" parent="stage/Room_entitites/Room_mask/Control" instance=ExtResource("3_tlqwr")]
+unique_name_in_owner = true
 z_index = 0
 position = Vector2(140, -44)
 scale = Vector2(0.552, 0.552)
@@ -225,16 +225,18 @@ shape = SubResource("CircleShape2D_5llra")
 debug_color = Color(0.656387, 0.36393, 0.92404, 0.42)
 
 [node name="photoframe" type="Sprite2D" parent="stage/Room_entitites/Room_mask/Control"]
+unique_name_in_owner = true
 visible = false
 z_index = 100
 position = Vector2(217, 56)
 scale = Vector2(2, 2)
 
-[node name="Non-Dialogue_Action" parent="stage/Room_entitites/Room_mask/Control/photoframe" node_paths=PackedStringArray("item") instance=ExtResource("10_63hwx")]
+[node name="Non-Dialogue_Action" parent="stage/Room_entitites/Room_mask/Control/photoframe" node_paths=PackedStringArray("item", "morgan") instance=ExtResource("10_63hwx")]
 z_index = 100
 collision_layer = 16
 item = NodePath("../Group_photo")
-fade_speed = 0.3
+fade_speed = 0.1
+morgan = NodePath("../../Morgan_Tidy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/Room_mask/Control/photoframe/Non-Dialogue_Action"]
 z_index = 1
@@ -248,9 +250,11 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("12_lf6ra")
 
 [node name="Room_exit" type="Area2D" parent="stage"]
+unique_name_in_owner = true
 position = Vector2(608, 553)
-collision_layer = 0
+collision_layer = 16
 collision_mask = 32
+script = ExtResource("13_5llra")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_exit"]
 shape = SubResource("RectangleShape2D_5llra")
@@ -281,44 +285,67 @@ layer = 101
 
 [node name="DialogueSpriteManager" parent="DialogueSprite" node_paths=PackedStringArray("character_sprite", "dialogue_overlay", "player") instance=ExtResource("11_kixbj")]
 unique_name_in_owner = true
-character_sprite = NodePath("Sprite2D")
-dialogue_overlay = NodePath("Control")
+character_sprite = NodePath("CanvasLayer/Control/Sprite2D")
+dialogue_overlay = NodePath("CanvasLayer/Control2")
 fade_speed = 0.5
 player = NodePath("../../stage/Room_entitites/Room_mask/Control/Morgan_Tidy")
 
-[node name="Control" type="Control" parent="DialogueSprite/DialogueSpriteManager"]
+[node name="CanvasLayer" type="CanvasLayer" parent="DialogueSprite/DialogueSpriteManager"]
+
+[node name="Control2" type="Control" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = -84.0
-offset_right = -6.0
-offset_bottom = -84.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DialogueSprite/DialogueSpriteManager/Control"]
-layout_mode = 0
-offset_top = 81.0
-offset_right = 4000.0
-offset_bottom = 2322.0
-scale = Vector2(0.29, 0.29)
+[node name="Control" type="Control" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 76.0
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer/Control2/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 45
+
+[node name="TextureRect" type="TextureRect" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer/Control2/Control/MarginContainer2"]
+layout_mode = 2
 texture = ExtResource("12_63hwx")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="DialogueSprite/DialogueSpriteManager"]
+[node name="MarginContainer" type="MarginContainer" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 45
+
+[node name="Control" type="Control" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer/Control"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("13_kixbj")
 
 [node name="DialogueBoxManager" parent="." node_paths=PackedStringArray("RootScene") instance=ExtResource("14_5llra")]
 unique_name_in_owner = true
-script = ExtResource("15_lf6ra")
 RootScene = NodePath("..")
 Dialogue_Resource = ExtResource("16_unuko")
-
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_lf6ra")
-autoplay = true
-bus = &"BGM"
-parameters/looping = true

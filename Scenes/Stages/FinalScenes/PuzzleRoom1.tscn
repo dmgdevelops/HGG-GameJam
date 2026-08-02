@@ -4915,7 +4915,6 @@ position = Vector2(210, 428)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_2ijde")
-autoplay = true
 parameters/looping = true
 
 [connection signal="body_entered" from="SmallDoor/NextRoomTrigger" to="." method="_on_next_room_trigger_body_entered"]

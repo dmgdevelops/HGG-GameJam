@@ -62,6 +62,8 @@ func _take_damage( hurtbox : Hurtbox) -> void:
 	else:
 		#transition to real world
 		LevelManager.load_new_level("res://Scenes/Real_World/real_world_tidy.tscn")
+		SaveSystem.data.RealWorld2 = SaveSystem.data.menu_stages_state.UNLOCKED
+		SaveSystem.save_data()
 		self.queue_free()
 		
 func anim_direction() -> String:

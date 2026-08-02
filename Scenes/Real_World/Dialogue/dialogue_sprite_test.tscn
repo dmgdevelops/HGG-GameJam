@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://daqnum0wukcuf"]
+
+[ext_resource type="Texture2D" uid="uid://ksi8mpyxb7tg" path="res://Assets/morganDialogue2_alpha.png" id="1_6s7kq"]
+[ext_resource type="Script" uid="uid://0u44y4fjgu4j" path="res://Scenes/Real_World/Dialogue/dialogue_sprite_test.gd" id="1_et6c0"]
+[ext_resource type="Texture2D" uid="uid://ci8uj8ug5202x" path="res://Assets/Dialogue/dialogueoverlay_gold.png" id="2_k8g2c"]
+[ext_resource type="Texture2D" uid="uid://u2l64rqbldrq" path="res://Assets/Dialogue/dialogueoverlay_blue.png" id="2_n4g5f"]
+[ext_resource type="Texture2D" uid="uid://bmuu8arkqupw0" path="res://Assets/morganevil5.png" id="5_q8yf4"]
+[ext_resource type="Texture2D" uid="uid://bdau8h0wwypfn" path="res://Assets/morganSWORD1_alpha.png" id="5_xhjy1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xhjy1"]
+texture = ExtResource("2_n4g5f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n4g5f"]
+texture = ExtResource("2_k8g2c")
+
+[node name="DialogueSpriteTest" type="CanvasLayer"]
+script = ExtResource("1_et6c0")
+fade_speed = 0.2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueOverlay" type="Control" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg_blue" type="PanelContainer" parent="Control/DialogueOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_xhjy1")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/DialogueOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="bg_gold" type="PanelContainer" parent="Control/DialogueOverlay/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_n4g5f")
+
+[node name="SpriteControl" type="Control" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/SpriteControl"]
+unique_name_in_owner = true
+position = Vector2(28.999998, -29.999994)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_6s7kq")
+
+[node name="DarkMorgan" type="Sprite2D" parent="Control/SpriteControl"]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("5_q8yf4")
+
+[node name="Sword" type="Sprite2D" parent="Control/SpriteControl"]
+unique_name_in_owner = true
+visible = false
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_xhjy1")

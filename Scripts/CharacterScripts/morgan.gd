@@ -10,6 +10,7 @@ class_name Player extends CharacterBody2D
 @onready var effect_animator: AnimationPlayer = $EffectAnimator
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var actionable_finder = %Hurtbox
 
 signal DirectionChanged( int_direction : Vector2 )
 signal PlayerDamaged ( damage: int )
@@ -39,7 +40,8 @@ func _ready():
 	update_hp(99)
 	icetiles = get_node_or_null("%IceTiles")
 	dirttiles = get_node_or_null("%DirtTiles")
-	pass
+	
+
 
 func _physics_process(delta):
 	if is_sliding:
@@ -136,3 +138,12 @@ func make_invulnerable ( _duration : float ) -> void:
 	invul = false
 	hitbox.monitoring = true
 	pass
+
+
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("attack"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		
+		if actionables.size() > 0:
+			if actionables[0].has_method('action'):
+				actionables[0].action()

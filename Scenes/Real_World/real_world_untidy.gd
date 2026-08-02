@@ -4,6 +4,7 @@ extends Node2D
 @onready var DialogueSprite := %DialogueSpriteManager
 @onready var DialogueBManager := %DialogueBoxManager
 
+@onready var unlock_stages_secret = $stage/Room_entitites/unlock_stages_secret/actionable
 @onready var book_actionable = $stage/Room_entitites/Room_mask/Control/Book/actionable
 @onready var book_shader = $stage/Room_entitites/Room_mask/Control/Book/shaded_version
 
@@ -25,12 +26,21 @@ var is_interact_tutorial_triggered := false
 
 func _ready() -> void:
 	book_actionable.connect('book_triggered_once', turn_off_book_highlight)
+	unlock_stages_secret.connect("unlock_stages_secret", unlock_stages)
 	move_tutorial_area.connect('body_exited', move_tutorial_exited)
 	interact_tutorial_area.connect('area_entered', interact_tutorial_event.bind('area_entered'))
 	interact_tutorial_area.connect('area_exited', interact_tutorial_event.bind('area_exited'))
 	tween = get_tree()
 
 	interact_tutorial.modulate.a = 0
+	
+	MusicManager.stop_bg_music()
+
+func unlock_stages():
+	SaveSystem.data.DreamWorld = SaveSystem.data.menu_stages_state.UNLOCKED
+	SaveSystem.data.DreamWorld_door1 = SaveSystem.data.menu_stages_state.UNLOCKED
+	SaveSystem.save_data()
+	MenuButtons.update_stages_menu()
 
 
 # animating tutorials
@@ -65,6 +75,11 @@ func fade_in(p_ui: Control):
 
 
 func _on_morgan_sleep() -> void:
+	#var data = SaveData.new()
+	#data.DreamWorld = data.menu_stages_state.UNLOCKED
+	SaveSystem.data.DreamWorld = SaveSystem.data.menu_stages_state.UNLOCKED
+	SaveSystem.save_data()
+	MenuButtons.update_stages_menu()
 	LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")
 	print('sleep girl')
 

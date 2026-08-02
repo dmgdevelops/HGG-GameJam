@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfjncecaf2mqt"]
+[gd_scene load_steps=8 format=3 uid="uid://cfjncecaf2mqt"]
 
 [ext_resource type="Script" uid="uid://djwj304wf14fv" path="res://UI/title_screen.gd" id="1_816ia"]
 [ext_resource type="Shader" uid="uid://cmloavtyrvgvw" path="res://Shaders/particle_shader.gdshader" id="1_iaef4"]
 [ext_resource type="Theme" uid="uid://cdxkvpdxtr5vu" path="res://UI/Resources/title_screen.tres" id="2_816ia"]
 [ext_resource type="Shader" uid="uid://dewy242g8asir" path="res://Shaders/color_filter.gdshader" id="3_5whv5"]
+[ext_resource type="FontFile" uid="uid://dbr2xvtt5pbf5" path="res://Assets/Fonts/PixeloidSans-Bold.ttf" id="3_udsnl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_coop4"]
 shader = ExtResource("1_iaef4")
@@ -42,6 +43,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 350
+theme_override_constants/margin_bottom = 136
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Text/Control/MarginContainer"]
 layout_mode = 2
@@ -49,14 +52,32 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Text/Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_udsnl")
 text = "Morgan Does a Thing"
 horizontal_alignment = 1
 
-[node name="Start" type="Button" parent="Text/Control/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Text/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 125
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Text/Control/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Start" type="Button" parent="Text/Control/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
 text = "Start"
+
+[node name="MainMenu" type="Button" parent="Text/Control/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Menu"
+
+[node name="Quit" type="Button" parent="Text/Control/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
 
 [node name="ParticleShader" type="CanvasLayer" parent="."]
 layer = 120

@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://ci8uj8ug5202x" path="res://Assets/Dialogue/dialogueoverlay_gold.png" id="12_8gtjo"]
 [ext_resource type="Texture2D" uid="uid://cq8qavw6dhit5" path="res://Assets/Real_World/irl_mess_final.png" id="13_j7pwk"]
 [ext_resource type="PackedScene" uid="uid://c7b17g8a14p81" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.tscn" id="14_j7pwk"]
-[ext_resource type="Script" uid="uid://bpwnfekla8der" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.gd" id="15_ldxei"]
 [ext_resource type="Resource" uid="uid://ch41uafmqew71" path="res://Assets/Dialogue/Dialogue_Manager/Real_World_Key_Dialogues.dialogue" id="16_ldxei"]
 [ext_resource type="PackedScene" uid="uid://e83cf607mlek" path="res://UI/move_tutorial.tscn" id="20_co1fq"]
 [ext_resource type="PackedScene" uid="uid://3s6bo2n1sgrd" path="res://UI/interact_tutorial.tscn" id="21_txxbo"]
@@ -65,6 +64,9 @@ shader_parameter/shine_angle = -45.0
 shader_parameter/shine_duration = 3.0
 shader_parameter/shine_speed = 300.0
 shader_parameter/shine_width = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vc5d"]
+radius = 20.22375
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3mk1"]
 radius = 23.0217
@@ -183,7 +185,7 @@ grow_vertical = 2
 
 [node name="Morgan_untidy" parent="stage/Room_entitites/Room_mask/Control" instance=ExtResource("4_co1fq")]
 unique_name_in_owner = true
-position = Vector2(35, 230)
+position = Vector2(34, 221)
 scale = Vector2(0.552, 0.552)
 collision_layer = 33
 
@@ -292,6 +294,17 @@ debug_color = Color(0.690911, 0.361036, 0.867103, 0.42)
 material = SubResource("ShaderMaterial_co1fq")
 texture = ExtResource("11_qjmvg")
 
+[node name="unlock_stages_secret" type="Node2D" parent="stage/Room_entitites"]
+position = Vector2(530, 283)
+
+[node name="actionable" parent="stage/Room_entitites/unlock_stages_secret" node_paths=PackedStringArray("dialogue_box_manager") instance=ExtResource("7_id0qg")]
+dialogue_title = "secret"
+dialogue_box_manager = NodePath("../../../../DialogueBoxManager")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stage/Room_entitites/unlock_stages_secret/actionable"]
+position = Vector2(-197, -69)
+shape = SubResource("CircleShape2D_0vc5d")
+
 [node name="BedInteraction" type="Node2D" parent="stage"]
 z_index = 2
 position = Vector2(750, 226)
@@ -329,12 +342,15 @@ layer = 101
 
 [node name="DialogueSpriteManager" parent="DialogueSprite" node_paths=PackedStringArray("character_sprite", "dialogue_overlay", "player") instance=ExtResource("11_d4jb4")]
 unique_name_in_owner = true
-character_sprite = NodePath("Sprite2D")
-dialogue_overlay = NodePath("Control")
+character_sprite = NodePath("CanvasLayer/Control/Control/Sprite2D")
+dialogue_overlay = NodePath("CanvasLayer/Control2")
 fade_speed = 0.5
 player = NodePath("../../stage/Room_entitites/Room_mask/Control/Morgan_untidy")
 
-[node name="Control" type="Control" parent="DialogueSprite/DialogueSpriteManager"]
+[node name="CanvasLayer" type="CanvasLayer" parent="DialogueSprite/DialogueSpriteManager"]
+layer = 101
+
+[node name="Control2" type="Control" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -346,7 +362,7 @@ offset_bottom = -84.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="DialogueSprite/DialogueSpriteManager/Control"]
+[node name="TextureRect" type="TextureRect" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer/Control2"]
 layout_mode = 0
 offset_top = 138.0
 offset_right = 4000.0
@@ -355,13 +371,29 @@ scale = Vector2(0.29, 0.29)
 texture = ExtResource("12_8gtjo")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="DialogueSprite/DialogueSpriteManager"]
+[node name="Control" type="Control" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="Control" type="Control" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="DialogueSprite/DialogueSpriteManager/CanvasLayer/Control/Control"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("13_j7pwk")
 
 [node name="DialogueBoxManager" parent="." node_paths=PackedStringArray("RootScene") instance=ExtResource("14_j7pwk")]
 unique_name_in_owner = true
-script = ExtResource("15_ldxei")
 RootScene = NodePath("..")
 Dialogue_Resource = ExtResource("16_ldxei")
 

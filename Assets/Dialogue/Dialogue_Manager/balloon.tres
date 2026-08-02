@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://46n4ghljjyv8"]
+
+[ext_resource type="Texture2D" uid="uid://2uqejvic35bh" path="res://Assets/Dialogue/dialoguebox_cropped.png" id="1_nmlm2"]
+[ext_resource type="FontFile" uid="uid://coe88gvbcgxlr" path="res://Assets/Fonts/courier-prime/Courier Prime/Courier Prime.ttf" id="3_pgis4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7f5ye"]
+texture = ExtResource("1_nmlm2")
+
+[resource]
+default_font = ExtResource("3_pgis4")
+default_font_size = 24
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_7f5ye")
+RichTextLabel/fonts/normal_font = ExtResource("3_pgis4")

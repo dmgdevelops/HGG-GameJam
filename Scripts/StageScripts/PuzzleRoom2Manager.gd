@@ -5,12 +5,13 @@ extends Node2D
 @onready var doorBarrier = $SmallDoor/DoorCollisions/DoorBarrier
 @onready var player_spawn: Node2D = $PlayerSpawn
 
-var numPicsToCollect = 4
+@export var numPicsToCollect = 4
 
 func _ready():
 	self.y_sort_enabled = true
 	PlayerManager.set_as_parent( self )
 	PlayerManager.set_player_pos(player_spawn.global_position)
+	MusicManager.play_bg_music(&'ForestTheme')
 	pass
 
 func _process(_delta):

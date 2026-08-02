@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://c7b17g8a14p81"]
+[gd_scene load_steps=2 format=3 uid="uid://c7b17g8a14p81"]
+
+[ext_resource type="Script" uid="uid://bpwnfekla8der" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.gd" id="1_udlu1"]
 
 [node name="DialogueBoxManager" type="Node2D"]
+script = ExtResource("1_udlu1")

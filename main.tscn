@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccr00k67wg75m"]
+
+[ext_resource type="Script" uid="uid://cbc8dccs5lvd6" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cfjncecaf2mqt" path="res://UI/title_screen.tscn" id="2_h2yge"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ig7tw")
+
+[node name="TitleScreen" parent="." instance=ExtResource("2_h2yge")]
+unique_name_in_owner = true

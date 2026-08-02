@@ -6,6 +6,8 @@ extends Node2D
 @onready var boss: Boss = $DarkMorgan_boss
 @onready var player_spawn: Node2D = $PlayerSpawn
 
+@onready var DialogueSprite = %DialogueSpriteTest
+
 
 func _ready() -> void:
 	self.y_sort_enabled = true
@@ -13,13 +15,19 @@ func _ready() -> void:
 	PlayerManager.set_player_pos(player_spawn.global_position)
 	LevelManager.level_load_started.connect ( _free_level )
 	if Global.initialEncounterWithShadowMorgan == false:
+		MusicManager.stop_bg_music()
 		PlayerManager.player.set_physics_process(false)
 		boss.state_machine.set_process(false)
 		boss.state_machine.set_physics_process(false)
+		get_tree().create_timer(2).timeout.connect(func():%DialogueBoxManager.add_dialogue_box('MeetShadowMorgan'))
 		Dialogic.timeline_ended.connect(ended)
 		Dialogic.signal_event.connect( _on_dialogic_signal )
-		Dialogic.start("MeetShadowMorgan")
-		
+		#Dialogic.start("MeetShadowMorgan")
+
+	# play boss music
+	if Global.initialEncounterWithShadowMorgan:
+		MusicManager.play_bg_music(&'DarkMorgan')
+
 func ended():
 	Dialogic.timeline_ended.disconnect(ended)
 	LevelManager.load_new_level("res://Scenes/Stages/FinalScenes/DreamWorld_WakeUp.tscn")

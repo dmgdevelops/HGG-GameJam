@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bqva0g22rhsyd"]
+[gd_scene load_steps=29 format=4 uid="uid://bqva0g22rhsyd"]
 
 [ext_resource type="Script" uid="uid://c4og7vv06uo37" path="res://Scripts/StageScripts/DreamWorldWakeUp.gd" id="1_8rsiv"]
 [ext_resource type="Texture2D" uid="uid://caqw32masggxr" path="res://Assets/forestgrass1.png" id="1_neovx"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dft3i4k76iwx7" path="res://Scenes/Items/small_door.tscn" id="8_acg7p"]
 [ext_resource type="PackedScene" uid="uid://dbbo6lfhqw65b" path="res://Scenes/Generics/player_spawn.tscn" id="9_cuiei"]
 [ext_resource type="AudioStream" uid="uid://lmi5o1cuerih" path="res://Assets/MusicAndSFX/Forest Theme.ogg" id="11_8rsiv"]
+[ext_resource type="PackedScene" uid="uid://cvoy11qvr843" path="res://Scenes/Real_World/actionable.tscn" id="12_2i0kj"]
+[ext_resource type="PackedScene" uid="uid://c7b17g8a14p81" path="res://Scenes/Real_World/Dialogue/dialogue_box_manager.tscn" id="13_x4avb"]
+[ext_resource type="Resource" uid="uid://ch41uafmqew71" path="res://Assets/Dialogue/Dialogue_Manager/Real_World_Key_Dialogues.dialogue" id="14_acg7p"]
+[ext_resource type="PackedScene" uid="uid://daqnum0wukcuf" path="res://Scenes/Real_World/Dialogue/dialogue_sprite_test.tscn" id="17_oe3iw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuwy3"]
 texture = ExtResource("1_neovx")
@@ -8543,6 +8547,9 @@ size = Vector2(47.9338, 56.1983)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hk7fm"]
 size = Vector2(28.0992, 29.7521)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_657b1"]
+radius = 11.045361
+
 [node name="DreamWorldSpawn" type="Node2D"]
 script = ExtResource("1_8rsiv")
 
@@ -8593,8 +8600,8 @@ shape = SubResource("RectangleShape2D_hk7fm")
 position = Vector2(249, 292)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("11_8rsiv")
-autoplay = true
 parameters/looping = true
 
 [node name="BigDoor" parent="." instance=ExtResource("7_x4avb")]
@@ -8608,6 +8615,27 @@ scale = Vector2(0.6, 0.6)
 [node name="DoorRight" parent="." instance=ExtResource("8_acg7p")]
 position = Vector2(551, 56)
 scale = Vector2(0.6, 0.6)
+
+[node name="unlock_stages_secret" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(511, 274)
+
+[node name="actionable" parent="unlock_stages_secret" node_paths=PackedStringArray("dialogue_box_manager") instance=ExtResource("12_2i0kj")]
+dialogue_title = "secret"
+dialogue_box_manager = NodePath("../../DialogueBoxManager")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="unlock_stages_secret/actionable"]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_657b1")
+
+[node name="DialogueBoxManager" parent="." node_paths=PackedStringArray("RootScene") instance=ExtResource("13_x4avb")]
+unique_name_in_owner = true
+RootScene = NodePath("..")
+Dialogue_Resource = ExtResource("14_acg7p")
+
+[node name="DialogueSpriteTest" parent="." instance=ExtResource("17_oe3iw")]
+unique_name_in_owner = true
+character_sprite_path = "res://Assets/morganDialogue2_alpha.png"
 
 [connection signal="body_entered" from="BigDoor/NextRoomTrigger" to="." method="_on_next_room_trigger_body_entered_middle"]
 [connection signal="body_entered" from="DoorLeft/NextRoomTrigger" to="." method="_on_next_room_trigger_body_entered_left"]

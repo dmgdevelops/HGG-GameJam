@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://buh6c4ayi1avh"]
+
+[ext_resource type="FontFile" uid="uid://dcp7r7twd1pey" path="res://Assets/Fonts/PixelMplus10-Regular.ttf" id="1_pu0e2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4yriv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oi6ga"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pu0e2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0x1o"]
+
+[resource]
+default_font = ExtResource("1_pu0e2")
+default_font_size = 30
+Button/constants/h_separation = 0
+Button/fonts/font = ExtResource("1_pu0e2")
+Button/styles/disabled = SubResource("StyleBoxEmpty_4yriv")
+Button/styles/focus = SubResource("StyleBoxEmpty_oi6ga")
+Button/styles/normal = SubResource("StyleBoxEmpty_pu0e2")
+Button/styles/pressed = SubResource("StyleBoxEmpty_d0x1o")

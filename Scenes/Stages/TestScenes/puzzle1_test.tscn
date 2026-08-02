@@ -997,7 +997,7 @@ tile_set = SubResource("TileSet_3gfdn")
 z_index = 2
 position = Vector2(416, 432)
 
-[node name="Camera2D" type="Camera2D" parent="Morgan"]
+[node name="Camera2D2" type="Camera2D" parent="Morgan"]
 zoom = Vector2(3, 3)
 limit_left = 0
 limit_top = 0

@@ -1,0 +1,298 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj18j3a3isx3q"]
+
+[ext_resource type="Script" uid="uid://ioklxxonnwb3" path="res://UI/credits.gd" id="1_ng644"]
+[ext_resource type="Theme" uid="uid://u46mem36l6b7" path="res://UI/Resources/credits.tres" id="2_uuuvy"]
+
+[node name="Credits" type="CanvasLayer"]
+layer = 130
+script = ExtResource("1_ng644")
+
+[node name="CreditsControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("2_uuuvy")
+
+[node name="ColorRect" type="ColorRect" parent="CreditsControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 125
+theme_override_constants/margin_top = 135
+theme_override_constants/margin_right = 95
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Direction/Art"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ria"
+fit_content = true
+
+[node name="LinkButton" type="LinkButton" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "web"
+uri = "https://riaoommen.wixsite.com/animate"
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Art/Programming
+"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Kumiikislap"
+fit_content = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer4/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Programming"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer4/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "dmgdevelops"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hakasay"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Music"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Undine Soundworks"
+fit_content = true
+
+[node name="LinkButton" type="LinkButton" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+text = "website"
+uri = "https://undinesoundworks.carrd.co/"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Background Assets"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Pixel Interior"
+fit_content = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LinkButton" type="LinkButton" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "link"
+uri = "https://bitglow.itch.io/pixelinterior-bedroom"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "Forest"
+fit_content = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LinkButton" type="LinkButton" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer3/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
+layout_mode = 2
+text = "link"
+uri = "https://craftpix.net/freebies/free-forest-objects-top-down-pixel-art/"
+
+[node name="MarginContainer4" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Made with Godot Engine"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 110
+
+[node name="Label" type="Label" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer4/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Plugins"
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer4/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 35
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer4/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dialogic"
+
+[node name="Label3" type="Label" parent="CreditsControl/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer/MarginContainer4/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dialogue Manager"

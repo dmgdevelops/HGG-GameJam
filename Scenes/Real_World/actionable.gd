@@ -5,9 +5,15 @@ extends Area2D
 
 signal book_triggered_once
 
+signal unlock_stages_secret
+
+signal action_triggered
 
 func action():
 	if !dialogue_title or !dialogue_box_manager:
 		printerr("actionable exports empty!")
 	dialogue_box_manager.add_dialogue_box(dialogue_title)
 	book_triggered_once.emit()
+	unlock_stages_secret.emit()
+
+	action_triggered.emit()
